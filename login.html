@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Login</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core CSS (for variables/fonts) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="split-layout">
+        <!-- Left Panel -->
+        <div class="split-left">
+            <div class="split-left-content">
+                <div class="logo-text">STACKLY</div>
+                <h3>Welcome back!</h3>
+                <p>Access your dashboard and manage your agricultural journey</p>
+                <a href="index.html" class="btn-back-home">BACK TO HOME</a>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="split-right">
+            <div class="login-form-wrapper">
+                <div class="form-header">
+                    <h2>Login to your account</h2>
+                    <p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+                </div>
+
+                <form id="loginForm" action="#">
+                    <!-- Role Selection -->
+                    <div class="form-group">
+                        <label for="role">Login as</label>
+                        <select id="role" class="form-select">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter Your Email" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter Password" required>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="login-options">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn-login">LOGIN</button>
+
+                    <!-- Divider -->
+                    <div class="divider">Or create with</div>
+
+                    <!-- Social Logins -->
+                    <div class="social-login">
+                        <a href="#" class="btn-social">Facebook</a>
+                        <a href="#" class="btn-social">Google</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts for preloader (navbar/footer won't load since placeholders are removed) -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

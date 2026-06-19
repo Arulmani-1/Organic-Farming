@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product - Stackly</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/our_products.css"> <!-- For related product cards -->
+    <link rel="stylesheet" href="css/single_product.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner Section -->
+    <section class="page-hero-banner sp-hero wl-hero">
+        <div class="container text-center">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fa-solid fa-angles-right"></i> <span>Organic Sweet Banana</span>
+            </div>
+            <h1 class="page-title">Single Product</h1>
+        </div>
+        <!-- Decorative leaves (can use SVG or img, assuming we use img or CSS background) -->
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="sp-details-section">
+        <div class="container">
+            <div class="sp-grid">
+                <div class="sp-left">
+                    <div class="sp-image-wrapper">
+                        <button class="sp-zoom-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="sp-image-box">
+                            <img src="images/banana-3d.png" alt="Organic Sweet Banana" id="main-product-img">
+                        </div>
+                    </div>
+                    <div class="sp-thumbnails">
+                        <div class="sp-thumb active"><img src="images/banana-3d.png" alt="Thumb 1"></div>
+                        <div class="sp-thumb"><img src="images/banana.png" alt="Thumb 2"></div>
+                        <div class="sp-thumb"><img src="images/banana.png" alt="Thumb 3"></div>
+                    </div>
+                </div>
+                <div class="sp-right">
+                    <div class="sp-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span class="sp-review-count">(1 customer review)</span>
+                    </div>
+                    <h2 class="sp-title">Organic Sweet Banana</h2>
+                    <div class="sp-price">
+                        <span class="current">$78.00 – $120.00</span>
+                    </div>
+                    <p class="sp-desc">
+                        You can place an order through our website by selecting your desired products, adding them to
+                        the cart, and checking out. Our Biona Organic Granola with Wild Berries is just the thing to get
+                        you out of bed. The goodness of rolled wholegrain oats are combined with a variety of tangy
+                        organic berries, and baked into crispy clusters that are as nutritious.
+                    </p>
+
+                    <div class="sp-weight-options">
+                        <span class="weight-label">Weight</span>
+                        <div class="weight-buttons">
+                            <button class="weight-btn">0.5 Kg</button>
+                            <button class="weight-btn">1.00 Kg</button>
+                            <button class="weight-btn">2.00 Kg</button>
+                            <button class="weight-btn">3.00 Kg</button>
+                        </div>
+                    </div>
+
+                    <div class="sp-actions">
+                        <div class="sp-qty">
+                            <button class="qty-btn sp-minus"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" value="1" id="sp-qty-input" min="1">
+                            <button class="qty-btn sp-plus"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <button class="btn-green sp-add-to-cart">Add to cart <i
+                                class="fa-solid fa-arrow-trend-up"></i></button>
+                        <button class="sp-add-to-wishlist btn-outline">
+                            Add to wishlist <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <div class="sp-meta">
+                        <p><strong>SKU:</strong> <span>06</span></p>
+                        <p><strong>Categories:</strong> <span>Food, Organic</span></p>
+                        <p class="sp-share"><strong>Share:</strong>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#">𝕏</a>
+                            <a href="#"><i class="fa-solid fa-globe"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="sp-tabs-section">
+        <div class="container">
+            <div class="sp-tabs-nav">
+                <button class="sp-tab-btn active" data-target="desc">Description</button>
+                <button class="sp-tab-btn" data-target="info">Additional information</button>
+                <button class="sp-tab-btn" data-target="reviews">Reviews (1)</button>
+            </div>
+            <div class="sp-tabs-content">
+                <div class="sp-tab-pane active" id="tab-desc">
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the
+                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on
+                        the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
+                        sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
+                        is therefore always free from repetition, injected humour.</p>
+                </div>
+                <div class="sp-tab-pane" id="tab-info">
+                    <div class="info-table">
+                        <p><strong>Weight</strong> <span>0.5 Kg, 1.00 Kg, 2.00 Kg, 3.00 Kg</span></p>
+                    </div>
+                </div>
+                <div class="sp-tab-pane" id="tab-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <img src="images/Jack.webp" alt="admin" class="reviewer-avatar">
+                                <div class="review-content">
+                                    <div class="review-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="review-meta"><strong>admin</strong> – May 28, 2025</p>
+                                    <p class="review-text">The banana feels very clean and delicious. The fruit is quite
+                                        big.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-form">
+                            <h3>ADD A REVIEW</h3>
+                            <p class="form-note">Your email address will not be published. Required fields are marked *
+                            </p>
+                            <form>
+                                <div class="form-group">
+                                    <label>Name *</label>
+                                    <input type="text" placeholder="Name *" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email *</label>
+                                    <input type="email" placeholder="Email *" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your rating *</label>
+                                    <div class="rating-select">
+                                        <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                                            class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                                            class="fa-regular fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Your review *</label>
+                                    <textarea placeholder="Your review *" required></textarea>
+                                </div>
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="save-info">
+                                    <label for="save-info">Save my name, email, and website in this browser for the next
+                                        time I comment.</label>
+                                </div>
+                                <button type="submit" class="btn-green review-submit">Submit <i
+                                        class="fa-solid fa-arrow-trend-up"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="sp-related-products">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+                <span class="subtitle"
+                    style="color: #5a8e48; font-weight: 600; font-size: 15px; margin-bottom: 15px; display: inline-block;"><i
+                        class="fa-solid fa-leaf"></i> Related Products</span>
+                <h2 class="related-title" style="margin-bottom: 0;">Related Products for You</h2>
+            </div>
+            <div class="sp-related-grid">
+                <!-- Card 1 -->
+                <div class="sp-related-card">
+                    <div class="sp-rc-badges">
+                        <span class="sp-rc-badge yellow">Sale</span>
+                        <span class="sp-rc-badge green">11%</span>
+                    </div>
+                    <div class="sp-rc-img">
+                        <img src="images/product-1.jpg" alt="Natural Gaminig">
+                        <div class="sp-rc-actions">
+                            <button class="rc-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                            <button class="rc-btn"><i class="fa-solid fa-eye"></i></button>
+                            <button class="rc-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="sp-rc-content">
+                        <h3 class="sp-rc-title"><a href="#">Natural Gaminig</a></h3>
+                        <div class="sp-rc-price">
+                            <span class="current">$344.00</span>
+                            <span class="old">$389.00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="sp-related-card">
+                    <div class="sp-rc-badges">
+                        <span class="sp-rc-badge yellow">Sale</span>
+                        <span class="sp-rc-badge green">11%</span>
+                    </div>
+                    <div class="sp-rc-img">
+                        <img src="images/hero-main.png" alt="Organic Carrot">
+                        <div class="sp-rc-actions">
+                            <button class="rc-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                            <button class="rc-btn"><i class="fa-solid fa-eye"></i></button>
+                            <button class="rc-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="sp-rc-content">
+                        <h3 class="sp-rc-title"><a href="#">Organic Carrot</a></h3>
+                        <div class="sp-rc-price">
+                            <span class="current">$344.00</span>
+                            <span class="old">$389.00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="sp-related-card">
+                    <div class="sp-rc-badges">
+                        <span class="sp-rc-badge yellow">Sale</span>
+                        <span class="sp-rc-badge green">11%</span>
+                    </div>
+                    <div class="sp-rc-img">
+                        <img src="images/product-3.jpg" alt="Organic Sweet Corn">
+                        <div class="sp-rc-actions">
+                            <button class="rc-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                            <button class="rc-btn"><i class="fa-solid fa-eye"></i></button>
+                            <button class="rc-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="sp-rc-content">
+                        <h3 class="sp-rc-title"><a href="#">Organic Sweet Corn</a></h3>
+                        <div class="sp-rc-price">
+                            <span class="current">$344.00</span>
+                            <span class="old">$389.00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="sp-related-card">
+                    <div class="sp-rc-badges">
+                        <span class="sp-rc-badge yellow">Sale</span>
+                        <span class="sp-rc-badge green">11%</span>
+                    </div>
+                    <div class="sp-rc-img">
+                        <img src="images/gallery-1.jpg" alt="Fresh New Potato">
+                        <div class="sp-rc-actions">
+                            <button class="rc-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                            <button class="rc-btn"><i class="fa-solid fa-eye"></i></button>
+                            <button class="rc-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="sp-rc-content">
+                        <h3 class="sp-rc-title"><a href="#">Fresh New Potato</a></h3>
+                        <div class="sp-rc-price">
+                            <span class="current">$344.00</span>
+                            <span class="old">$389.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="shop-cta-section">
+        <div class="container">
+            <div class="shop-cta-banner">
+                <div class="cta-left">
+                    <div class="cta-icon-wrap">
+                        <span class="fa-stack fa-2x" style="font-size: 45px;">
+                            <i class="fa-solid fa-certificate fa-stack-2x" style="color: #fff;"></i>
+                            <i class="fa-solid fa-envelope-open-text fa-stack-1x"
+                                style="color: #5a8e48; font-size: 35px;"></i>
+                        </span>
+                    </div>
+                    <div class="cta-text">
+                        <span class="cta-subtitle"><i class="fa-solid fa-leaf"></i> Get Start Now</span>
+                        <h2 class="cta-title">Don't Miss Out –<br>Enjoy Up to 50% Off!</h2>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="contact.html" class="btn btn-yellow"
+                        style="padding: 18px 40px; border-radius: 40px; font-weight: 700; color: #111; background-color: #F1C40F; text-decoration: none; display: inline-block;">
+                        Contact Today <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="shop-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="qv-overlay"></div>
+        <button class="qv-prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="qv-content-wrapper">
+            <div class="qv-content">
+                <button class="qv-close"><i class="fa-solid fa-xmark"></i></button>
+                <div class="qv-grid">
+                    <div class="qv-left">
+                        <img src="images/fruits.webp" alt="Product Image" id="qv-image">
+                    </div>
+                    <div class="qv-right">
+                        <h2 id="qv-title">Product Title</h2>
+                        <div class="qv-price" id="qv-price"><span class="current">$32.99</span> <span
+                                class="old">$42.99</span></div>
+                        <p class="qv-desc">You can place an order through our website by selecting your desired
+                            products, adding them to the cart, and checking out. Our Biona Organic Granola with Wild
+                            Berries is just the thing to get you out of bed. The goodness of rolled wholegrain oats are
+                            combined with a variety of tangy organic berries, and baked into crispy clusters that are as
+                            nutritious.</p>
+                        <div class="qv-actions">
+                            <div class="qv-qty">
+                                <button class="qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" value="1" id="qv-qty-input" min="1">
+                                <button class="qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button class="btn-green">Add to cart <i class="fa-solid fa-arrow-trend-up"></i></button>
+                        </div>
+                        <div class="qv-meta">
+                            <p>SKU: <span id="qv-sku">15</span></p>
+                            <p>Categories: <span id="qv-cat">Egg, Fruits</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="qv-next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="wishlist-modal" id="wishlistModal">
+        <div class="wl-overlay"></div>
+        <div class="wl-content-wrapper">
+            <div class="wl-header">
+                <h3 id="wl-count-text">Wishlist(0)</h3>
+                <button class="wl-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="wl-body" id="wl-items-container">
+                <!-- Items will be injected here via JS -->
+            </div>
+            <div class="wl-footer">
+                <a href="#" class="wl-link">OPEN WISHLIST PAGE</a>
+                <a href="javascript:void(0)" class="wl-link wl-continue">CONTINUE SHOPPING</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 id="cart-count-text">Cart (0)</h3>
+            <button class="cart-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cart-items-container">
+            <!-- Cart items will be injected here via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal-price">$0.00</span>
+            </div>
+            <a href="#" class="cart-btn view-cart">View Cart <i class="fa-solid fa-arrow-trend-up"></i></a>
+            <a href="#" class="cart-btn checkout">Checkout <span class="chk-icon"><i
+                        class="fa-solid fa-arrow-up"></i></span></a>
+        </div>
+    </div>
+
+    <!-- Dynamic Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css?v=4">
+    <style>
+        /* Page Sections */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px; }
+        .stat-card { background: #fff; border-radius: 12px; padding: 22px 25px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-left: 4px solid #5B8C51; }
+        .stat-card.yellow { border-left-color: #F1C40F; }
+        .stat-card.red { border-left-color: #ff4d4f; }
+        .stat-card.blue { border-left-color: #1890ff; }
+        .stat-card .stat-label { font-size: 12px; text-transform: uppercase; font-weight: 700; color: #888; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .stat-card .stat-value { font-size: 32px; font-weight: 800; color: #112B1B; font-family: 'Outfit', sans-serif; }
+        .stat-card .stat-sub { font-size: 13px; color: #aaa; margin-top: 4px; }
+
+        /* Page Title */
+        .page-title { margin-bottom: 25px; }
+        .page-title h2 { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: #112B1B; margin: 0 0 4px; }
+        .page-title p { color: #888; font-size: 14px; margin: 0; }
+
+        /* Table */
+        .data-table-wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); overflow: hidden; }
+        .data-table-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 25px; border-bottom: 1px solid #f0f0f0; }
+        .data-table-header h3 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 16px; color: #112B1B; }
+        .btn-add { background: #112B1B; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; transition: background 0.2s; }
+        .btn-add:hover { background: #5B8C51; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 12px 20px; text-align: left; font-size: 12px; text-transform: uppercase; color: #888; font-weight: 700; letter-spacing: 0.5px; }
+        td { padding: 14px 20px; border-bottom: 1px solid #f5f5f5; font-size: 14px; color: #444; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #fafff8; }
+
+        /* Badge */
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .badge-green { background: #e6f7ee; color: #5B8C51; }
+        .badge-yellow { background: #fffbe6; color: #d48806; }
+        .badge-red { background: #fff1f0; color: #ff4d4f; }
+        .badge-blue { background: #e6f4ff; color: #1890ff; }
+
+        /* Action Buttons */
+        .action-btn { background: none; border: none; cursor: pointer; padding: 5px 8px; border-radius: 5px; font-size: 14px; transition: background 0.2s; }
+        .action-btn.edit { color: #1890ff; } .action-btn.edit:hover { background: #e6f4ff; }
+        .action-btn.del { color: #ff4d4f; } .action-btn.del:hover { background: #fff1f0; }
+
+        /* Empty state */
+        .empty-state { text-align: center; padding: 60px 20px; color: #bbb; }
+        .empty-state i { font-size: 48px; margin-bottom: 15px; display: block; }
+        .empty-state p { font-size: 15px; margin: 0; }
+
+        /* Search Bar */
+        .search-bar { display: flex; gap: 10px; align-items: center; }
+        .search-bar input { padding: 8px 15px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 13px; outline: none; width: 220px; }
+        .search-bar input:focus { border-color: #5B8C51; }
+
+        /* Inventory */
+        .progress-bar { background: #eee; border-radius: 10px; height: 8px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 10px; background: #5B8C51; }
+        .progress-fill.low { background: #ff4d4f; }
+        .progress-fill.mid { background: #F1C40F; }
+
+        /* Recent activity */
+        .activity-list { list-style: none; margin: 0; padding: 0; }
+        .activity-list li { display: flex; gap: 15px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+        .activity-list li:last-child { border-bottom: none; }
+        .activity-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+        .activity-text { font-size: 14px; color: #444; }
+        .activity-time { font-size: 12px; color: #aaa; margin-top: 2px; }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo-text">
+                    <i class="fa-solid fa-leaf" style="color: #F1C40F;"></i> STACKLY
+                </a>
+                <button class="mobile-toggle" id="mobileToggleBtn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-label">Main Menu</li>
+                <li><a href="#" class="nav-link active" data-page="dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-page="users"><i class="fa-solid fa-users"></i> User Management</a></li>
+                <li><a href="#" class="nav-link" data-page="products"><i class="fa-solid fa-box"></i> Product Management</a></li>
+                <li><a href="#" class="nav-link" data-page="categories"><i class="fa-solid fa-tags"></i> Category Management</a></li>
+                <li><a href="#" class="nav-link" data-page="orders"><i class="fa-solid fa-cart-flatbed"></i> Order Management</a></li>
+                <li><a href="#" class="nav-link" data-page="inventory"><i class="fa-solid fa-warehouse"></i> Inventory</a></li>
+                <li><a href="#" class="nav-link" data-page="subscriptions"><i class="fa-solid fa-repeat"></i> Subscriptions</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <!-- empty -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left" style="display: flex; align-items: baseline; gap: 15px;">
+                    <span style="color: #666; font-size: 15px;">Welcome, <span id="header-welcome-name" style="color: #112B1B; font-weight: 700;">Admin</span></span>
+                </div>
+                <div class="topbar-right">
+                    <div class="user-profile">
+                        <div class="user-info" style="text-align: right;">
+                            <span class="user-role" id="display-role">Admin</span>
+                            <span class="user-email" id="display-email">admin@example.com</span>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <a href="index.html" id="logoutBtn" class="btn-logout-top">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                    </a>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="dashboard-content">
+
+                <!-- ======================== DASHBOARD PAGE ======================== -->
+                <div id="page-dashboard" class="page-section active">
+                    <div class="page-title">
+                        <h2>Dashboard Overview</h2>
+                        <p>Welcome back! Here's what's happening with your store today.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Users</div>
+                            <div class="stat-value">1,284</div>
+                            <div class="stat-sub">↑ 12% this month</div>
+                        </div>
+                        <div class="stat-card yellow">
+                            <div class="stat-label">Active Orders</div>
+                            <div class="stat-value">56</div>
+                            <div class="stat-sub">↑ 5 new today</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-label">Low Stock Items</div>
+                            <div class="stat-value">8</div>
+                            <div class="stat-sub">Needs attention</div>
+                        </div>
+                        <div class="stat-card blue">
+                            <div class="stat-label">Revenue (Month)</div>
+                            <div class="stat-value">₹2.4L</div>
+                            <div class="stat-sub">↑ 8% vs last month</div>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <ul class="activity-list" style="padding: 0 25px;">
+                            <li>
+                                <div class="activity-icon" style="background:#e6f7ee; color:#5B8C51;"><i class="fa-solid fa-user-plus"></i></div>
+                                <div><div class="activity-text">New user <b>Ravi Kumar</b> registered</div><div class="activity-time">2 minutes ago</div></div>
+                            </li>
+                            <li>
+                                <div class="activity-icon" style="background:#fffbe6; color:#d48806;"><i class="fa-solid fa-box"></i></div>
+                                <div><div class="activity-text">Order <b>#ORD-2041</b> placed for Organic Compost</div><div class="activity-time">15 minutes ago</div></div>
+                            </li>
+                            <li>
+                                <div class="activity-icon" style="background:#fff1f0; color:#ff4d4f;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <div><div class="activity-text"><b>Neem Oil 5L</b> stock is critically low (3 units left)</div><div class="activity-time">1 hour ago</div></div>
+                            </li>
+                            <li>
+                                <div class="activity-icon" style="background:#e6f4ff; color:#1890ff;"><i class="fa-solid fa-star"></i></div>
+                                <div><div class="activity-text">New review posted on <b>Bio Fertilizer Pack</b></div><div class="activity-time">3 hours ago</div></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ======================== USERS PAGE ======================== -->
+                <div id="page-users" class="page-section">
+                    <div class="page-title">
+                        <h2>User Management</h2>
+                        <p>View and manage all registered users and farmers.</p>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>All Users <span style="color:#aaa; font-weight:400; font-size:13px;">(1,284)</span></h3>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search users...">
+                                <button class="btn-add" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add User</button>
+                            </div>
+                        </div>
+                        <table>
+                            <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td>001</td><td>Arun Pannu</td><td>arun@example.com</td><td>Admin</td><td>Jan 10, 2025</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>002</td><td>Ravi Kumar</td><td>ravi@example.com</td><td>User</td><td>Mar 5, 2025</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>003</td><td>Meena Devi</td><td>meena@example.com</td><td>User</td><td>Apr 12, 2025</td><td><span class="badge badge-yellow">Pending</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>004</td><td>Suresh Babu</td><td>suresh@example.com</td><td>User</td><td>May 20, 2025</td><td><span class="badge badge-red">Blocked</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>005</td><td>Priya Lakshmi</td><td>priya@example.com</td><td>User</td><td>Jun 1, 2025</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== PRODUCTS PAGE ======================== -->
+                <div id="page-products" class="page-section">
+                    <div class="page-title">
+                        <h2>Product Management</h2>
+                        <p>Add, edit, delete, and manage all organic farming products.</p>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>All Products <span style="color:#aaa; font-weight:400; font-size:13px;">(48)</span></h3>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search products...">
+                                <button class="btn-add" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add Product</button>
+                            </div>
+                        </div>
+                        <table>
+                            <thead><tr><th>#</th><th>Product Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td>P001</td><td>Organic Compost 10kg</td><td>Fertilizers</td><td>₹350</td><td>124</td><td><span class="badge badge-green">Published</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>P002</td><td>Neem Oil 5L</td><td>Pesticides</td><td>₹599</td><td>3</td><td><span class="badge badge-red">Low Stock</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>P003</td><td>Bio Fertilizer Pack</td><td>Fertilizers</td><td>₹475</td><td>56</td><td><span class="badge badge-green">Published</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>P004</td><td>Drip Irrigation Kit</td><td>Equipment</td><td>₹2,200</td><td>12</td><td><span class="badge badge-yellow">Draft</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>P005</td><td>Vermicompost 5kg</td><td>Fertilizers</td><td>₹280</td><td>89</td><td><span class="badge badge-green">Published</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== CATEGORIES PAGE ======================== -->
+                <div id="page-categories" class="page-section">
+                    <div class="page-title">
+                        <h2>Category Management</h2>
+                        <p>Manage all product categories for your store.</p>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>All Categories <span style="color:#aaa; font-weight:400; font-size:13px;">(12)</span></h3>
+                            <button class="btn-add" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add Category</button>
+                        </div>
+                        <table>
+                            <thead><tr><th>#</th><th>Category Name</th><th>Slug</th><th>Products</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>Fertilizers</td><td>fertilizers</td><td>18</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>2</td><td>Pesticides</td><td>pesticides</td><td>9</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>3</td><td>Seeds</td><td>seeds</td><td>14</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>4</td><td>Equipment</td><td>equipment</td><td>7</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                                <tr><td>5</td><td>Tools</td><td>tools</td><td>0</td><td><span class="badge badge-yellow">Inactive</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button> <button class="action-btn del" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== ORDERS PAGE ======================== -->
+                <div id="page-orders" class="page-section">
+                    <div class="page-title">
+                        <h2>Order Management</h2>
+                        <p>Track and process all customer orders.</p>
+                    </div>
+                    <div class="stats-grid" style="grid-template-columns: repeat(3,1fr);">
+                        <div class="stat-card"><div class="stat-label">Total Orders</div><div class="stat-value">342</div></div>
+                        <div class="stat-card yellow"><div class="stat-label">Pending</div><div class="stat-value">56</div></div>
+                        <div class="stat-card red"><div class="stat-label">Cancelled</div><div class="stat-value">14</div></div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>All Orders</h3>
+                            <div class="search-bar"><input type="text" placeholder="Search orders..."></div>
+                        </div>
+                        <table>
+                            <thead><tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td>#ORD-2041</td><td>Ravi Kumar</td><td>Organic Compost 10kg</td><td>₹350</td><td>18 Jun 2025</td><td><span class="badge badge-yellow">Pending</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td></tr>
+                                <tr><td>#ORD-2040</td><td>Priya Lakshmi</td><td>Bio Fertilizer Pack</td><td>₹475</td><td>17 Jun 2025</td><td><span class="badge badge-green">Delivered</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td></tr>
+                                <tr><td>#ORD-2039</td><td>Meena Devi</td><td>Neem Oil 5L</td><td>₹599</td><td>16 Jun 2025</td><td><span class="badge badge-blue">Shipped</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td></tr>
+                                <tr><td>#ORD-2038</td><td>Suresh Babu</td><td>Vermicompost 5kg</td><td>₹280</td><td>15 Jun 2025</td><td><span class="badge badge-red">Cancelled</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td></tr>
+                                <tr><td>#ORD-2037</td><td>Arun Pannu</td><td>Drip Irrigation Kit</td><td>₹2,200</td><td>14 Jun 2025</td><td><span class="badge badge-green">Delivered</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== INVENTORY PAGE ======================== -->
+                <div id="page-inventory" class="page-section">
+                    <div class="page-title">
+                        <h2>Inventory Management</h2>
+                        <p>Monitor stock levels and product availability.</p>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>Stock Levels</h3>
+                            <button class="btn-add" onclick="window.location.href='404.html'"><i class="fa-solid fa-arrow-up"></i> Update Stock</button>
+                        </div>
+                        <table>
+                            <thead><tr><th>Product</th><th>Category</th><th>In Stock</th><th>Sold</th><th>Stock Level</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Organic Compost 10kg</td><td>Fertilizers</td><td>124</td><td>376</td>
+                                    <td style="width:200px;"><div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div></td>
+                                    <td><span class="badge badge-green">Good</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Neem Oil 5L</td><td>Pesticides</td><td>3</td><td>197</td>
+                                    <td><div class="progress-bar"><div class="progress-fill low" style="width:3%"></div></div></td>
+                                    <td><span class="badge badge-red">Critical</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Bio Fertilizer Pack</td><td>Fertilizers</td><td>56</td><td>144</td>
+                                    <td><div class="progress-bar"><div class="progress-fill mid" style="width:35%"></div></div></td>
+                                    <td><span class="badge badge-yellow">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Drip Irrigation Kit</td><td>Equipment</td><td>12</td><td>38</td>
+                                    <td><div class="progress-bar"><div class="progress-fill mid" style="width:24%"></div></div></td>
+                                    <td><span class="badge badge-yellow">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Vermicompost 5kg</td><td>Fertilizers</td><td>89</td><td>211</td>
+                                    <td><div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div></td>
+                                    <td><span class="badge badge-green">Good</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== SUBSCRIPTIONS PAGE ======================== -->
+                <div id="page-subscriptions" class="page-section">
+                    <div class="page-title">
+                        <h2>Subscription Management</h2>
+                        <p>Manage farming plans and active memberships.</p>
+                    </div>
+                    <div class="stats-grid" style="grid-template-columns: repeat(3,1fr); margin-bottom:25px;">
+                        <div class="stat-card"><div class="stat-label">Active Plans</div><div class="stat-value">187</div></div>
+                        <div class="stat-card yellow"><div class="stat-label">Expiring Soon</div><div class="stat-value">23</div></div>
+                        <div class="stat-card blue"><div class="stat-label">Revenue/Month</div><div class="stat-value">₹84K</div></div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header">
+                            <h3>Active Subscriptions</h3>
+                            <button class="btn-add" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> New Plan</button>
+                        </div>
+                        <table>
+                            <thead><tr><th>User</th><th>Plan</th><th>Price</th><th>Start Date</th><th>Expiry</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td>Ravi Kumar</td><td>Gold Farmer</td><td>₹499/mo</td><td>01 Jan 2025</td><td>31 Dec 2025</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button></td></tr>
+                                <tr><td>Priya Lakshmi</td><td>Basic Grower</td><td>₹199/mo</td><td>01 Mar 2025</td><td>28 Feb 2026</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button></td></tr>
+                                <tr><td>Meena Devi</td><td>Gold Farmer</td><td>₹499/mo</td><td>15 Apr 2025</td><td>14 Jun 2025</td><td><span class="badge badge-yellow">Expiring</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button></td></tr>
+                                <tr><td>Suresh Babu</td><td>Premium Organic</td><td>₹999/mo</td><td>01 May 2025</td><td>30 Apr 2026</td><td><span class="badge badge-green">Active</span></td><td><button class="action-btn edit" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div><!-- /dashboard-content -->
+        </main>
+    </div>
+
+    <script>
+        // ── Auth data ──
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleEl = document.getElementById('display-role');
+            const emailEl = document.getElementById('display-email');
+            const headerWelcomeEl = document.getElementById('header-welcome-name');
+
+            const savedRole  = localStorage.getItem('auth_role');
+            const savedEmail = localStorage.getItem('auth_email');
+            const savedName  = localStorage.getItem('auth_first_name');
+
+            if (savedRole && savedEmail) {
+                roleEl.innerText  = savedRole;
+                emailEl.innerText = savedEmail;
+                headerWelcomeEl.innerText = savedName
+                    ? savedName
+                    : savedRole.charAt(0).toUpperCase() + savedRole.slice(1);
+            }
+
+            // ── Logout ──
+            document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('auth_role');
+                localStorage.removeItem('auth_email');
+                localStorage.removeItem('auth_first_name');
+                window.location.href = 'index.html';
+            });
+
+            // ── SPA Navigation ──
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages    = document.querySelectorAll('.page-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetPage = link.getAttribute('data-page');
+
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // Show target page, hide others
+                    pages.forEach(p => p.classList.remove('active'));
+                    const target = document.getElementById('page-' + targetPage);
+                    if (target) target.classList.add('active');
+
+                    // Close mobile sidebar if open
+                    const sidebarMenu = document.querySelector('.sidebar-menu');
+                    if (window.innerWidth <= 768 && sidebarMenu) {
+                        sidebarMenu.classList.remove('show');
+                    }
+                });
+            });
+
+            // ── Mobile Sidebar Toggle ──
+            const mobileToggleBtn = document.getElementById('mobileToggleBtn');
+            const sidebarMenu = document.querySelector('.sidebar-menu');
+            if (mobileToggleBtn && sidebarMenu) {
+                mobileToggleBtn.addEventListener('click', () => {
+                    sidebarMenu.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

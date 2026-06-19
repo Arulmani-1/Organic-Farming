@@ -1,0 +1,507 @@
+/* ==========================================================================
+   3 Columns Blog Grid Styles
+   ========================================================================== */
+
+/* --- Page Banner --- */
+.page-banner.blog-banner {
+    position: relative;
+    padding: 150px 0 120px;
+    background-image: url('../images/feature-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* or fixed for parallax */
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    margin-top: 80px; /* offset for fixed navbar */
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark Green Overlay from screenshot */
+    background: rgba(43, 89, 39, 0.75); 
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.breadcrumbs a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--color-accent, #E8CA4E);
+}
+
+.breadcrumbs .separator {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.breadcrumbs .current {
+    opacity: 0.9;
+}
+
+.banner-title {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 55px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+/* Banner Decorations */
+.banner-leaf {
+    position: absolute;
+    bottom: -50px;
+    font-size: 300px;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.left-leaf {
+    left: 10%;
+    transform: rotate(30deg);
+}
+
+.right-leaf {
+    right: 5%;
+    transform: rotate(-30deg) scaleX(-1);
+}
+
+/* --- Blog Grid Section --- */
+.blog-grid-section {
+    padding: 100px 0;
+    background-color: #f9fbf9;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* --- Blog Card --- */
+.blog-card {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible; /* to allow date badge to overlap */
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.blog-img {
+    position: relative;
+    border-radius: 10px;
+}
+
+.blog-img img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img img {
+    transform: scale(1.03); /* Subtle zoom */
+}
+
+/* Ensure the wrapper doesn't clip the image scale effect */
+.blog-img {
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+/* Since blog-img has overflow:hidden to clip the image, we put blog-date outside or change structure. 
+   Wait, let's keep blog-date inside but absolute. If blog-img has overflow hidden, it will clip the badge.
+   Ah, I need to set overflow visible on blog-card, but the image wrapper should be hidden. 
+   Actually, the HTML structure is:
+   <div class="blog-img"> <img src="..."> <div class="blog-date">...</div> </div>
+   If we need the badge to break out, we must NOT have overflow hidden on .blog-img.
+   Instead, put the border-radius directly on the image, or a separate inner wrapper for the image.
+*/
+.blog-img {
+    overflow: visible;
+}
+.blog-img img {
+    /* Image itself handles the radius */
+    border-radius: 10px;
+}
+
+.blog-date {
+    position: absolute;
+    bottom: -30px; /* Overlaps bottom edge */
+    left: 20px;
+    background: #DFD046; /* Yellow from screenshot */
+    color: #183026; /* Dark text */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.blog-date .day {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.blog-date .month {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.blog-content {
+    padding: 40px 10px 10px;
+    text-align: center;
+}
+
+.blog-category {
+    color: var(--color-primary, #5B8C51);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.blog-content h3 {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-weight: 800;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.blog-content h3 a {
+    color: var(--color-secondary, #183026);
+    transition: color 0.3s ease;
+}
+
+.blog-content h3 a:hover {
+    color: var(--color-primary, #5B8C51);
+}
+
+.blog-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-primary, #5B8C51);
+    font-weight: 700;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.read-more i {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--color-secondary, #183026);
+}
+
+.read-more:hover i {
+    transform: translate(3px, -3px);
+}
+
+/* --- Pagination --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.page-num {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #183026;
+    color: var(--color-secondary, #183026);
+    font-weight: 700;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    transition: all 0.3s ease;
+}
+
+.page-num.active {
+    background: #183026; /* Dark green active state */
+    color: #fff;
+    border-color: #183026;
+}
+
+.page-num:hover:not(.active) {
+    background: var(--color-primary, #5B8C51);
+    color: #fff;
+    border-color: var(--color-primary, #5B8C51);
+}
+
+/* ============================================== */
+/* CTA BANNER SECTION                             */
+/* ============================================== */
+.blog-cta-section {
+    padding: 0 0 100px;
+    background-color: #f9fbf9;
+}
+
+.cta-banner {
+    position: relative;
+    background-image: url('../images/feature-1.jpg'); /* Use farming image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 70px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(43, 89, 39, 0.15);
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Dark green overlay */
+    background: rgba(43, 89, 39, 0.85);
+    z-index: 1;
+}
+
+.cta-left, .cta-right {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Scalloped badge approximation */
+.cta-icon-badge {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--color-primary, #5B8C51);
+    /* Create a wavy/scalloped effect using radial gradients */
+    background-image: radial-gradient(circle at 10px 10px, transparent 10px, #fff 11px);
+    background-size: 20px 20px;
+    background-position: -10px -10px;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Smooth out the badge center */
+.cta-icon-badge::after {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.cta-subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.cta-subtitle i {
+    color: var(--color-accent, #DFD046);
+}
+
+.cta-text h2 {
+    color: #fff;
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 0;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-weight: 800;
+}
+
+.btn-contact-yellow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #DFD046;
+    color: #183026;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-contact-yellow:hover {
+    background: #fff;
+    color: var(--color-primary, #5B8C51);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+    .cta-banner {
+        padding: 50px;
+    }
+    .cta-text h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 991px) {
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding: 50px 30px;
+    }
+    
+    .cta-left {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .cta-text h2 {
+        font-size: 32px;
+    }
+    
+    .banner-title {
+        font-size: 45px;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+    .blog-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns only on mobile landscape/tablet */
+    }
+    
+    .left-leaf, .right-leaf {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    .page-banner.blog-banner {
+        padding: 100px 0 80px;
+    }
+    
+    .banner-title {
+        font-size: 35px;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.history-image-slider {
+    padding: 80px 0;
+    background-color: #f0f1ec; /* Matches footer background */
+}
+
+.img-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.img-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    /* Left to right animation */
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.img-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% { transform: translateX(calc(-50% - 15px)); }
+    100% { transform: translateX(0); }
+}
+
+.slide-img {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+    transform: scale(1.1);
+}

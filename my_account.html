@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Stackly</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/my_account.css">
+</head>
+
+<body>
+    <!-- Dynamic Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner Section -->
+    <section class="page-hero-banner wl-hero">
+        <div class="container hero-content">
+            <div class="hero-breadcrumbs">
+                <a href="index.html">Home</a> <i class="fa-solid fa-angles-right"></i> <span>My Account</span>
+            </div>
+            <h1 class="hero-title">My Account</h1>
+        </div>
+    </section>
+
+
+
+    <!-- Account Section -->
+    <section class="account-page-section">
+        <div class="account-container">
+            <!-- Login Box -->
+            <div class="account-box-wrapper">
+                <h2 class="account-title">Login</h2>
+                <div class="account-box dark-theme">
+                    <form class="account-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username or email address <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input type="text" id="username" name="username" placeholder="Username or email address"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <div class="input-wrapper password-wrapper">
+                                <input type="password" id="password" name="password" placeholder="Password" required>
+                                <span class="toggle-password"><i class="fa-regular fa-eye-slash"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-bottom-actions">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <button type="submit" class="btn-green-pill">Log in <i
+                                    class="fa-solid fa-arrow-trend-up"></i></button>
+                        </div>
+                        <a href="#" class="lost-password">Lost your password?</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Register Box -->
+            <div class="account-box-wrapper">
+                <h2 class="account-title">Register</h2>
+                <div class="account-box dark-theme">
+                    <form class="account-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="reg_email">Email address <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input type="email" id="reg_email" name="email" placeholder="Email address" required>
+                            </div>
+                        </div>
+                        <p class="register-desc">A link to set a new password will be sent to your email address.</p>
+                        <p class="register-desc">Your personal data will be used to support your experience throughout
+                            this website, to manage access to your account, and for other purposes described in our <a
+                                href="#" class="privacy-link">privacy policy</a>.</p>
+                        <button type="submit" class="btn-green-pill" style="margin-top: 15px;">Register <i
+                                class="fa-solid fa-arrow-trend-up"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="shop-cta-section">
+        <div class="container">
+            <div class="shop-cta-banner">
+                <div class="cta-left">
+                    <div class="cta-icon-wrap">
+                        <span class="fa-stack fa-2x" style="font-size: 45px;">
+                            <i class="fa-solid fa-certificate fa-stack-2x" style="color: #fff;"></i>
+                            <i class="fa-solid fa-envelope-open-text fa-stack-1x"
+                                style="color: #5a8e48; font-size: 35px;"></i>
+                        </span>
+                    </div>
+                    <div class="cta-text">
+                        <span class="cta-subtitle"><i class="fa-solid fa-leaf"></i> Get Start Now</span>
+                        <h2 class="cta-title">Don't Miss Out –<br>Enjoy Up to 50% Off!</h2>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="contact.html" class="btn btn-yellow"
+                        style="padding: 18px 40px; border-radius: 40px; font-weight: 700; color: #111; background-color: #F1C40F; text-decoration: none; display: inline-block;">
+                        Contact Today <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="history-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

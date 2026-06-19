@@ -1,0 +1,589 @@
+/* ============================================== */
+/* OUR SERVICES HERO BANNER                       */
+/* ============================================== */
+
+.services-hero {
+    background-image: linear-gradient(rgba(35, 60, 25, 0.7), rgba(35, 60, 25, 0.7)), url('images/gallery-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 160px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.leaf-left {
+    bottom: -50px;
+    left: 5%;
+    transform: rotate(30deg);
+}
+
+.leaf-right {
+    bottom: -30px;
+    right: 5%;
+    transform: rotate(-45deg);
+}
+
+.services-hero .breadcrumb {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.services-hero .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.services-hero .breadcrumb a:hover {
+    color: var(--color-yellow, #F1C40F);
+}
+
+.services-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 70px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* ============================================== */
+/* SERVICES GRID SECTION                          */
+/* ============================================== */
+
+.services-grid-section {
+    padding: 100px 0;
+    background-color: #f7f9f6;
+}
+
+.srv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.srv-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    padding-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.srv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.srv-img-box {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Create the curved white cut using pseudo-element */
+.srv-img-box::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    /* Dictates the shallowness of the curve */
+    left: -50%;
+    width: 200%;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.srv-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #5a8e48;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    position: relative;
+    z-index: 10;
+    margin-top: -30px;
+    /* Overlaps perfectly with the curve */
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.srv-card:hover .srv-icon {
+    transform: rotateY(360deg);
+}
+
+.srv-content {
+    padding: 10px 30px 20px;
+}
+
+.srv-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    color: #233c19;
+    margin-bottom: 15px;
+}
+
+.srv-desc {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.srv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #5a8e48;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.srv-link:hover {
+    color: var(--color-yellow, #F1C40F);
+}
+
+@media (max-width: 1200px) {
+    .srv-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .srv-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .srv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================== */
+/* PROMO BANNER SECTION                           */
+/* ============================================== */
+
+.services-promo-banner {
+    position: relative;
+    padding: 180px 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Simple parallax effect */
+    display: flex;
+    align-items: center;
+}
+
+/* Dark gradient overlay for text readability */
+.services-promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.services-promo-banner .container {
+    position: relative;
+    z-index: 2;
+}
+
+.promo-content {
+    max-width: 900px;
+}
+
+.promo-content h2 {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.promo-content h2 span {
+    font-size: 75px;
+    font-weight: 800;
+    display: block;
+    margin-top: 5px;
+}
+
+@media (max-width: 992px) {
+    .promo-content h2 {
+        font-size: 40px;
+    }
+
+    .promo-content h2 span {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 576px) {
+    .promo-content h2 {
+        font-size: 30px;
+    }
+
+    .promo-content h2 span {
+        font-size: 40px;
+    }
+
+    .services-promo-banner {
+        padding: 120px 0;
+    }
+}
+
+/* ============================================== */
+/* WHY CHOOSE US SECTION                          */
+/* ============================================== */
+
+.why-choose-us-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.wcu-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.wcu-left {
+    flex: 1;
+    min-width: 450px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.wcu-main-img {
+    width: 90%;
+    border-radius: 15px;
+    object-fit: cover;
+    height: 550px;
+}
+
+.wcu-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    background-color: rgba(241, 196, 15, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.wcu-play-inner {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-yellow, #F1C40F);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #233c19;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.wcu-play-btn:hover .wcu-play-inner {
+    transform: scale(1.1);
+}
+
+.wcu-overlap-img {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+    border: 15px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+.wcu-right {
+    flex: 1;
+    min-width: 450px;
+}
+
+.wcu-subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.wcu-subtitle i {
+    color: #8cc63f;
+    font-size: 18px;
+}
+
+.wcu-title {
+    font-size: 45px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: #233c19;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.wcu-desc {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.wcu-features-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.wcu-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 1;
+}
+
+.wcu-feature i {
+    font-size: 35px;
+    color: #5a8e48;
+}
+
+.wcu-feature h4 {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: #233c19;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.wcu-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    margin-bottom: 35px;
+}
+
+.wcu-check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #233c19;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.wcu-check-item i {
+    color: #5a8e48;
+}
+
+.wcu-action-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.wcu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #5a8e48;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.wcu-btn:hover {
+    background-color: #233c19;
+}
+
+.wcu-phone-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wcu-phone-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-yellow, #F1C40F);
+    color: #233c19;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.wcu-phone-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.wcu-phone-label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.wcu-phone-number {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: #233c19;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .wcu-container {
+        flex-direction: column;
+    }
+
+    .wcu-left,
+    .wcu-right {
+        min-width: 100%;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .wcu-main-img {
+        width: 100%;
+        height: 400px;
+    }
+
+    .wcu-overlap-img {
+        right: auto;
+        left: 10%;
+        bottom: -30px;
+        width: 220px;
+        height: 280px;
+    }
+
+    .why-choose-us-section {
+        padding-bottom: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wcu-title {
+        font-size: 32px;
+    }
+
+    .wcu-features-row,
+    .wcu-checklist {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+
+    .wcu-action-row {
+        gap: 20px;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.history-image-slider {
+    padding: 80px 0;
+    background-color: #f5f6f2;
+}
+
+.img-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.img-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.img-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% { transform: translateX(calc(-50% - 15px)); }
+    100% { transform: translateX(0); }
+}
+
+.slide-img {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+    transform: scale(1.1);
+}

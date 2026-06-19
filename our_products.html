@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Stackly</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/our_products.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner Section -->
+    <section class="page-hero-banner wl-hero">
+        <div class="container hero-content">
+            <div class="hero-breadcrumbs">
+                <a href="index.html">Home</a>
+                <span class="divider"><i class="fa-solid fa-angles-right"></i></span>
+                <span>Our Products</span>
+            </div>
+            <h1 class="hero-title">Our Products</h1>
+        </div>
+    </section>
+
+    <!-- Shop Main Section -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-container">
+
+                <!-- Sidebar -->
+                <aside class="shop-sidebar">
+                    <!-- Search Widget -->
+                    <div class="shop-widget search-widget">
+                        <form action="#">
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="shop-widget categories-widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <div class="widget-divider"></div>
+                        <ul class="category-list">
+                            <li><a href="#">Bread & Bakery <span>(00)</span></a></li>
+                            <li><a href="#">Carrots <span>(00)</span></a></li>
+                            <li><a href="#">Egg <span>(04)</span></a></li>
+                            <li><a href="#">Food <span>(11)</span></a></li>
+                            <li><a href="#">Fresh Vegetables <span>(00)</span></a></li>
+                            <li><a href="#">Fruits <span>(04)</span></a></li>
+                            <li><a href="#">Lemon & Juice <span>(00)</span></a></li>
+                            <li><a href="#">Organic <span>(11)</span></a></li>
+                            <li><a href="#">Organic Sugar <span>(00)</span></a></li>
+                            <li><a href="#">Potato <span>(00)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Best Seller Widget -->
+                    <div class="shop-widget best-seller-widget">
+                        <h3 class="widget-title">Best Seller</h3>
+                        <div class="widget-divider"></div>
+                        <div class="bs-item">
+                            <div class="bs-img"><img src="images/banana.png" alt="Banana"></div>
+                            <div class="bs-content">
+                                <div class="bs-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i
+                                        class="fa-regular fa-star"></i>
+                                </div>
+                                <h4><a href="#">Golden Tropical Banana</a></h4>
+                                <div class="bs-price"><span class="current">$344.00</span> <span
+                                        class="old">$389.00</span></div>
+                            </div>
+                        </div>
+                        <div class="bs-item">
+                            <div class="bs-img"><img src="images/image2.webp" alt="Potato"></div>
+                            <div class="bs-content">
+                                <div class="bs-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i>
+                                </div>
+                                <h4><a href="#">Fresh New Potato</a></h4>
+                                <div class="bs-price"><span class="current">$344.00</span> <span
+                                        class="old">$389.00</span></div>
+                            </div>
+                        </div>
+                        <div class="bs-item">
+                            <div class="bs-img"><img src="images/banana.png" alt="Sweet Banana"></div>
+                            <div class="bs-content">
+                                <div class="bs-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                        class="fa-solid fa-star"></i>
+                                </div>
+                                <h4><a href="#">Organic Sweet Banana</a></h4>
+                                <div class="bs-price"><span class="current">$120.00</span> – <span
+                                        class="current">$78.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter By Price Widget -->
+                    <div class="shop-widget price-filter-widget">
+                        <h3 class="widget-title">Filter By Price</h3>
+                        <div class="widget-divider"></div>
+                        <div class="price-slider">
+                            <div class="slider-track"></div>
+                            <div class="slider-handle min-handle"></div>
+                            <div class="slider-handle max-handle"></div>
+                        </div>
+                        <div class="price-labels">
+                            <span>$30</span>
+                            <span>$350</span>
+                        </div>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="shop-widget tags-widget">
+                        <h3 class="widget-title">Tags</h3>
+                        <div class="widget-divider"></div>
+                        <div class="tags-list">
+                            <a href="#">Banana</a>
+                            <a href="#">Cheese</a>
+                            <a href="#">Potato</a>
+                            <a href="#">Vegetable</a>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- Main Content -->
+                <main class="shop-main">
+
+                    <!-- Top Bar -->
+                    <div class="shop-top-bar">
+                        <div class="showing-results" id="showing-results">Showing 1–9 of 15 results</div>
+                        <div class="sort-dropdown">
+                            <select>
+                                <option>Default sorting</option>
+                                <option>Sort by popularity</option>
+                                <option>Sort by average rating</option>
+                                <option>Sort by latest</option>
+                                <option>Sort by price: low to high</option>
+                                <option>Sort by price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="shop-grid shop-page active" id="main-shop-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/image2.webp" alt="Fresh New Potato">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn active"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Fresh New Potato</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/banana.png" alt="Golden Tropical Banana">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn active"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                                </div>
+                                <h3 class="pc-title"><a href="#">Golden Tropical Banana</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/natural.webp" alt="Natural Carrots">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Natural Carrots</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/organic-fruits.webp" alt="Natural Gaminig">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Natural Gaminig</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <div class="pc-img">
+                                <img src="images/banana.png" alt="Naturipe Premium Banana">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3 class="pc-title"><a href="#">Naturipe Premium Banana</a></h3>
+                                <div class="pc-price"><span class="current">$120.00</span> – <span class="current">$78.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">23%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/apple.png" alt="Organic Apples">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Apples-for Every Day Healthy Life</a></h3>
+                                <div class="pc-price"><span class="current">$32.99</span> <span class="old">$42.99</span></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 7 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">23%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/fruits.webp" alt="Organic Bell Peppers">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn active"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Bell Peppers - for a healthy life</a></h3>
+                                <div class="pc-price"><span class="current">$32.99</span> <span class="old">$42.99</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/orange.png" alt="Organic Carrot">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Carrot</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/mango.png" alt="Organic Carrot">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Carrot</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 10 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">11%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/organic-fruits.webp" alt="Organic Carrot Zin">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Carrot Zin</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 11 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">23%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/fruits.webp" alt="Organic Cucumbers">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Cucumbers - for a healthy life</a></h3>
+                                <div class="pc-price"><span class="current">$32.99</span> <span class="old">$42.99</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 12 -->
+                        <div class="product-card">
+                            <div class="pc-badges">
+                                <span class="badge sale">Sale</span>
+                                <span class="badge discount">23%</span>
+                            </div>
+                            <div class="pc-img">
+                                <img src="images/chicken&egg.jpg" alt="Organic Egg">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <div class="pc-rating"></div>
+                                <h3 class="pc-title"><a href="#">Organic Egg-for Every Day Healthy Life</a></h3>
+                                <div class="pc-price"><span class="current">$32.99</span> <span class="old">$42.99</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 13 -->
+                        <div class="product-card">
+                            <div class="pc-img">
+                                <img src="images/banana.png" alt="Sweet Banana">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <h3 class="pc-title"><a href="#">Sweet Banana</a></h3>
+                                <div class="pc-price"><span class="current">$120.00</span></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 14 -->
+                        <div class="product-card">
+                            <div class="pc-badges"><span class="badge sale">Sale</span><span class="badge discount">11%</span></div>
+                            <div class="pc-img">
+                                <img src="images/apple.png" alt="Red Apple">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <h3 class="pc-title"><a href="#">Farm Fresh Apple</a></h3>
+                                <div class="pc-price"><span class="current">$15.00</span> <span class="old">$20.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Product 15 -->
+                        <div class="product-card">
+                            <div class="pc-badges"><span class="badge sale">Sale</span><span class="badge discount">11%</span></div>
+                            <div class="pc-img">
+                                <img src="images/orange.png" alt="Organic Orange">
+                                <div class="pc-actions">
+                                    <button class="pc-action-btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-solid fa-eye"></i></button>
+                                    <button class="pc-action-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                            <div class="pc-content">
+                                <h3 class="pc-title"><a href="#">Organic Orange</a></h3>
+                                <div class="pc-price"><span class="current">$344.00</span> <span class="old">$389.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="shop-pagination">
+                        <a href="javascript:void(0)" class="page-num active" data-target="1">1</a>
+                        <a href="javascript:void(0)" class="page-num" data-target="2">2</a>
+                        <a href="javascript:void(0)" class="page-next"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="shop-cta-section">
+        <div class="container">
+            <div class="shop-cta-banner">
+                <div class="cta-left">
+                    <div class="cta-icon-wrap">
+                        <span class="fa-stack fa-2x" style="font-size: 45px;">
+                            <i class="fa-solid fa-certificate fa-stack-2x" style="color: #fff;"></i>
+                            <i class="fa-solid fa-envelope-open-text fa-stack-1x" style="color: #5a8e48; font-size: 35px;"></i>
+                        </span>
+                    </div>
+                    <div class="cta-text">
+                        <span class="cta-subtitle"><i class="fa-solid fa-leaf"></i> Get Start Now</span>
+                        <h2 class="cta-title">Don't Miss Out –<br>Enjoy Up to 50% Off!</h2>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="contact.html" class="btn btn-yellow" style="padding: 18px 40px; border-radius: 40px; font-weight: 700; color: #111; background-color: #F1C40F; text-decoration: none; display: inline-block;">
+                        Contact Today <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="shop-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="quick-view-modal" id="quickViewModal">
+        <div class="qv-overlay"></div>
+        <button class="qv-prev"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="qv-content-wrapper">
+            <div class="qv-content">
+                <button class="qv-close"><i class="fa-solid fa-xmark"></i></button>
+                <div class="qv-grid">
+                    <div class="qv-left">
+                        <img src="images/fruits.webp" alt="Product Image" id="qv-image">
+                    </div>
+                    <div class="qv-right">
+                        <h2 id="qv-title">Product Title</h2>
+                        <div class="qv-price" id="qv-price"><span class="current">$32.99</span> <span class="old">$42.99</span></div>
+                        <p class="qv-desc">You can place an order through our website by selecting your desired products, adding them to the cart, and checking out. Our Biona Organic Granola with Wild Berries is just the thing to get you out of bed. The goodness of rolled wholegrain oats are combined with a variety of tangy organic berries, and baked into crispy clusters that are as nutritious.</p>
+                        <div class="qv-actions">
+                            <div class="qv-qty">
+                                <button class="qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" value="1" id="qv-qty-input" min="1">
+                                <button class="qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button class="btn-green">Add to cart <i class="fa-solid fa-arrow-trend-up"></i></button>
+                        </div>
+                        <div class="qv-meta">
+                            <p>SKU: <span id="qv-sku">15</span></p>
+                            <p>Categories: <span id="qv-cat">Egg, Fruits</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="qv-next"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="wishlist-modal" id="wishlistModal">
+        <div class="wl-overlay"></div>
+        <div class="wl-content-wrapper">
+            <div class="wl-header">
+                <h3 id="wl-count-text">Wishlist(0)</h3>
+                <button class="wl-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="wl-body" id="wl-items-container">
+                <!-- Items will be injected here via JS -->
+            </div>
+            <div class="wl-footer">
+                <a href="#" class="wl-link">OPEN WISHLIST PAGE</a>
+                <a href="javascript:void(0)" class="wl-link wl-continue">CONTINUE SHOPPING</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 id="cart-count-text">Cart (0)</h3>
+            <button class="cart-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cart-items-container">
+            <!-- Cart items will be injected here via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal-price">$0.00</span>
+            </div>
+            <a href="#" class="cart-btn view-cart">View Cart <i class="fa-solid fa-arrow-trend-up"></i></a>
+            <a href="#" class="cart-btn checkout">Checkout <span class="chk-icon"><i class="fa-solid fa-arrow-up"></i></span></a>
+        </div>
+    </div>
+
+    <!-- Dynamic Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

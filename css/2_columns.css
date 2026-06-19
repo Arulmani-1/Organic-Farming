@@ -1,0 +1,280 @@
+/* ==========================================================================
+   2 Columns & Sidebar Layout Styles
+   ========================================================================== */
+
+.blog-page-section {
+    padding: 100px 0;
+    background-color: #f9fbf9;
+}
+
+/* Flex layout for sidebar */
+.blog-layout-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start; /* Required for sticky sidebar */
+}
+
+.blog-main {
+    flex: 1; /* Takes remaining space */
+    min-width: 0;
+}
+
+.blog-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px; /* Sticky positioning below navbar */
+    height: max-content;
+}
+
+/* Override 3-column grid for 2-column view */
+.blog-grid.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* Without sidebar layout wrapper */
+.blog-layout-wrapper.no-sidebar .blog-main {
+    width: 100%;
+}
+
+.blog-layout-wrapper.no-sidebar .blog-grid.two-columns {
+    /* If no sidebar, we might want max-width to center it nicely, or just full width 2 columns */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ============================================== */
+/* SIDEBAR WIDGETS                                */
+/* ============================================== */
+
+.sidebar-widget {
+    background: #fff;
+    border-radius: 10px;
+    padding: 35px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+}
+
+.widget-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-secondary, #183026);
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary, #5B8C51);
+    border-radius: 2px;
+}
+
+/* 1. Search Widget */
+.search-widget form {
+    position: relative;
+}
+
+.search-widget input {
+    width: 100%;
+    height: 55px;
+    background-color: #f9fbf9;
+    border: 1px solid #eef1ec;
+    border-radius: 8px;
+    padding: 0 55px 0 20px;
+    color: #666;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-widget input:focus {
+    border-color: var(--color-primary, #5B8C51);
+    background-color: #fff;
+}
+
+.search-widget button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 45px;
+    width: 45px;
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-widget button:hover {
+    background-color: var(--color-secondary, #183026);
+}
+
+/* 2. Categories Widget */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 15px;
+}
+
+.category-list li:last-child {
+    margin-bottom: 0;
+}
+
+.category-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.category-list a:hover {
+    color: var(--color-primary, #5B8C51);
+    transform: translateX(5px);
+}
+
+.category-list a span {
+    background-color: #f9fbf9;
+    color: var(--color-secondary, #183026);
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.category-list a:hover span {
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+}
+
+/* 3. Recent Posts Widget */
+.recent-post-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.recent-post-item:last-child {
+    margin-bottom: 0;
+}
+
+.rp-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.rp-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.recent-post-item:hover .rp-img img {
+    transform: scale(1.1);
+}
+
+.rp-content {
+    flex: 1;
+}
+
+.rp-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-primary, #5B8C51);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.rp-content h4 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 700;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.rp-content h4 a {
+    color: var(--color-secondary, #183026);
+    transition: color 0.3s ease;
+}
+
+.rp-content h4 a:hover {
+    color: var(--color-primary, #5B8C51);
+}
+
+/* 4. Popular Tags Widget */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-cloud a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #f9fbf9;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag-cloud a:hover {
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .blog-layout-wrapper {
+        flex-direction: column;
+    }
+    
+    .blog-sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .blog-grid.two-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-grid.two-columns {
+        grid-template-columns: 1fr;
+    }
+}

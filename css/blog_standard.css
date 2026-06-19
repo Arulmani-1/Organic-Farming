@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Blog Standard Styles
+   ========================================================================== */
+
+.blog-standard-post {
+    background-color: transparent;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #eef1ec;
+    padding-bottom: 50px;
+}
+
+.blog-standard-post:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.blog-standard-img {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.blog-standard-img img {
+    width: 100%;
+    /* Keep aspect ratio around 16:9 for large standard posts */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-standard-post:hover .blog-standard-img img {
+    transform: scale(1.03);
+}
+
+.blog-standard-date {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    background: #DFD046; /* Yellow badge */
+    color: #183026;
+    padding: 15px 25px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    z-index: 2;
+}
+
+.blog-standard-date .day {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.blog-standard-date .month {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-standard-content {
+    padding: 0 10px;
+}
+
+.blog-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.blog-post-meta span, 
+.blog-post-meta a {
+    color: #666;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-post-meta a:hover {
+    color: var(--color-primary, #5B8C51);
+}
+
+.blog-post-meta i {
+    color: var(--color-primary, #5B8C51);
+}
+
+.blog-standard-content h2 {
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-weight: 800;
+}
+
+.blog-standard-content h2 a {
+    color: var(--color-secondary, #183026);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-standard-content h2 a:hover {
+    color: var(--color-primary, #5B8C51);
+}
+
+.blog-standard-content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-read-more:hover {
+    background-color: var(--color-secondary, #183026);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .blog-standard-content h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-standard-img img {
+        aspect-ratio: 4 / 3;
+    }
+    
+    .blog-standard-date {
+        left: 20px;
+        padding: 10px 20px;
+    }
+    
+    .blog-standard-date .day {
+        font-size: 20px;
+    }
+    
+    .blog-standard-content h2 {
+        font-size: 22px;
+    }
+    
+    .blog-post-meta {
+        gap: 10px;
+    }
+}

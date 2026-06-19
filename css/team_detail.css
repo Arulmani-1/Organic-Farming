@@ -1,0 +1,411 @@
+/* ==========================================================================
+   Team Details Page Styles
+   ========================================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-family: var(--font-body);
+}
+
+.hero-breadcrumbs a,
+.hero-breadcrumbs i,
+.hero-breadcrumbs span {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hero-breadcrumbs a:hover {
+    color: var(--color-white, #fff);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 65px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 45px;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 35px;
+    }
+
+    .hero-breadcrumbs {
+        font-size: 14px;
+        color: #fff;
+    }
+}
+
+.team-details-section {
+    padding: 100px 0;
+}
+
+.team-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.team-details-image img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.team-role {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-primary, #5B8C51);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.team-name {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 45px;
+    font-weight: 800;
+    color: var(--color-secondary, #1C4F2B);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.team-desc {
+    color: var(--color-text-light, #666);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.team-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 30px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.contact-text p {
+    margin: 0;
+    color: var(--color-text-light, #666);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    color: var(--color-secondary, #1C4F2B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-primary, #5B8C51);
+    color: #fff;
+    border-color: var(--color-primary, #5B8C51);
+}
+
+.social-links a img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.social-links a:hover img {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 991px) {
+    .team-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-about-expertise {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .team-contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* About Me & Expertise Section */
+.team-about-expertise {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 80px;
+}
+
+.section-title {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-secondary, #1C4F2B);
+    margin-bottom: 25px;
+}
+
+.expertise-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.progress-container {
+    width: 100%;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background-color: #e5efe1;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--color-primary, #5B8C51);
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: var(--color-text-light, #666);
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+}
+
+/* Discount CTA Section */
+.discount-cta-section {
+    padding: 0 0 100px 0;
+}
+
+.discount-cta-banner {
+    position: relative;
+    background-image: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), url('../images/hero-bg-1.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.discount-cta-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    z-index: 2;
+}
+
+.discount-icon-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.badge-bg {
+    color: #fff;
+    font-size: 100px;
+    position: absolute;
+    z-index: 1;
+}
+
+.badge-icon {
+    color: var(--color-secondary, #1C4F2B);
+    font-size: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.discount-cta-text {
+    color: #fff;
+    z-index: 2;
+}
+
+.discount-cta-text .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.discount-cta-text h2 {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.btn-yellow-pill {
+    background-color: #E8CA4E;
+    color: var(--color-secondary, #1C4F2B);
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.btn-yellow-pill:hover {
+    background-color: #d6b83f;
+    color: var(--color-secondary);
+}
+
+@media (max-width: 991px) {
+    .discount-cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 30px;
+        gap: 30px;
+    }
+    
+    .discount-cta-left {
+        flex-direction: column;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.history-image-slider {
+    padding: 80px 0;
+    background-color: #f0f1ec;
+}
+
+.img-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.img-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.img-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% {
+        transform: translateX(calc(-50% - 15px));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.slide-img {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+    transform: scale(1.1);
+}

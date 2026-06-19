@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Stackly</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner Section -->
+    <section class="page-hero-banner wl-hero">
+        <div class="container text-center">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fa-solid fa-angles-right"></i> <span>Wishlist</span>
+            </div>
+            <h1 class="page-title">Wishlist</h1>
+        </div>
+    </section>
+
+    <!-- Wishlist Table Section -->
+    <section class="wishlist-page-section">
+        <div class="container">
+            <div class="wishlist-list-wrapper" id="wishlist-page-container">
+                <!-- Dynamic items will be populated here by script.js -->
+            </div>
+
+            <!-- <div class="wishlist-share">
+                <span>Share on:</span>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#">𝕏</a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="shop-cta-section">
+        <div class="container">
+            <div class="cta-banner">
+                <div class="cta-left">
+                    <div class="cta-icon-wrap">
+                        <span class="fa-stack fa-2x" style="font-size: 45px;">
+                            <i class="fa-solid fa-certificate fa-stack-2x" style="color: #fff;"></i>
+                            <i class="fa-solid fa-envelope-open-text fa-stack-1x"
+                                style="color: var(--color-primary); font-size: 35px;"></i>
+                        </span>
+                    </div>
+                    <div class="cta-text">
+                        <span class="cta-subtitle"><i class="fa-solid fa-leaf"></i> Get Start Now</span>
+                        <h2 class="cta-title">Don't Miss Out –<br>Enjoy Up to 50% Off!</h2>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="contact.html" class="btn btn-yellow"
+                        style="padding: 18px 40px; border-radius: 40px; font-weight: 700; color: #111;">
+                        Contact Today <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="history-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

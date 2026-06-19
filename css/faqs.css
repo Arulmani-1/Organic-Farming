@@ -1,0 +1,226 @@
+/* ============================================== */
+/* FAQs HERO BANNER                               */
+/* ============================================== */
+
+.faqs-hero {
+    background-image: linear-gradient(rgba(35, 60, 25, 0.7), rgba(35, 60, 25, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 160px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.leaf-img {
+    position: absolute;
+    width: 250px;
+    opacity: 0.2;
+    filter: invert(1);
+}
+
+.leaf-left {
+    bottom: -50px;
+    left: 5%;
+    transform: rotate(30deg);
+}
+
+.leaf-right {
+    bottom: -30px;
+    right: 5%;
+    transform: rotate(-45deg);
+}
+
+.faqs-hero .breadcrumb {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.faqs-hero .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faqs-hero .breadcrumb a:hover {
+    color: var(--color-yellow);
+}
+
+.faqs-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 70px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* ============================================== */
+/* FAQ CONTENT SECTION                            */
+/* ============================================== */
+.faq-content-section {
+    background-color: #ffffff; 
+    padding: 100px 0;
+}
+
+.faq-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.faq-header-left {
+    max-width: 600px;
+}
+
+.faq-header-left .sec-title {
+    margin-bottom: 0;
+}
+
+.faq-header-right {
+    padding-bottom: 10px;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #eef0eb;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.faq-item.active {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 22px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.faq-q-text {
+    padding-right: 20px;
+}
+
+.faq-icon {
+    font-size: 12px;
+    color: #888;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-answer p {
+    min-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 25px;
+    font-family: var(--font-body);
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0;
+    transition: padding 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-item.active .faq-answer p {
+    padding: 0 25px 25px 25px;
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ============================================== */
+/* FAQs CONTACT SECTION (Overrides)               */
+/* ============================================== */
+
+.faqs-cf-image-transparent {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
+    max-height: 700px;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Blends white background into light green */
+    margin-bottom: -10px;
+}
+
+.faqs-wheat-bg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    opacity: 0.15;
+    z-index: 0;
+}

@@ -1,0 +1,204 @@
+/* ============================================== */
+/* COMING SOON PAGE STYLES                        */
+/* ============================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: var(--font-body);
+}
+
+.coming-soon-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.cs-logo {
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.cs-logo img {
+    height: 40px;
+}
+
+.cs-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.cs-title {
+    font-size: 80px;
+    font-family: var(--font-heading);
+    color: var(--color-secondary, #233c19);
+    font-weight: 900;
+    margin: 0 0 50px;
+    line-height: 1;
+}
+
+.cs-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.cs-time-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 1px solid #5a8e48;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+
+.cs-number {
+    font-size: 40px;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: #5a8e48;
+    line-height: 1.2;
+}
+
+.cs-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.cs-colon {
+    font-size: 30px;
+    font-weight: 700;
+    color: #5a8e48;
+    margin-top: -20px; /* Aligns with numbers visually */
+}
+
+.cs-subscribe-form {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    display: flex;
+    height: 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.cs-subscribe-form input {
+    flex: 1;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    font-family: var(--font-body);
+}
+
+.cs-subscribe-form button {
+    background-color: #5a8e48;
+    color: #fff;
+    border: none;
+    width: 80px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.cs-subscribe-form button:hover {
+    background-color: #233c19;
+}
+
+.cs-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cs-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    color: #233c19;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cs-socials a img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.cs-socials a:hover {
+    background-color: #5a8e48;
+    border-color: #5a8e48;
+    color: #fff;
+}
+
+.cs-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #5a8e48;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+}
+
+.cs-home-btn:hover {
+    background-color: #233c19;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .cs-title {
+        font-size: 50px;
+    }
+    
+    .cs-countdown {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .cs-time-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .cs-number {
+        font-size: 28px;
+    }
+    
+    .cs-label {
+        font-size: 12px;
+    }
+    
+    .cs-colon {
+        display: none;
+    }
+}

@@ -1,0 +1,321 @@
+/* ============================================== */
+/* WISHLIST HERO BANNER                           */
+/* ============================================== */
+
+.wl-hero {
+    background-image: linear-gradient(rgba(26, 42, 18, 0.7), rgba(26, 42, 18, 0.7)), url('images/hero-bg-2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 120px 0;
+    position: relative;
+    border-radius: 10px;
+    margin: 20px 20px 0 20px;
+}
+
+.wl-hero .breadcrumb {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.wl-hero .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.wl-hero .breadcrumb a:hover {
+    color: #F1C40F;
+}
+
+.wl-hero .page-title {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+}
+
+/* ============================================== */
+/* WISHLIST PAGE CONTENT                          */
+/* ============================================== */
+
+.wishlist-page-section {
+    padding: 100px 0;
+}
+
+.wishlist-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.wl-page-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.wl-page-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.wl-remove-page-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #5a8e48;
+    color: #fff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.wl-remove-page-btn:hover {
+    background: #467236;
+}
+
+.wl-page-img img {
+    width: 150px;
+    object-fit: contain;
+}
+
+.wl-page-info {
+    flex-grow: 1;
+}
+
+.wl-page-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.wl-page-title a {
+    color: #1a2a12;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.wl-page-title a:hover {
+    color: #5a8e48;
+}
+
+.wl-page-price {
+    font-size: 15px;
+}
+
+.wl-page-price .old {
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.wl-page-price .current {
+    color: #1a2a12;
+    font-weight: 700;
+}
+
+.wl-page-action .btn-green {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Wishlist Share */
+.wishlist-share {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.wishlist-share span {
+    font-weight: 700;
+    color: #1a2a12;
+}
+
+.wishlist-share a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    color: #1a2a12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.shop-cta-section {
+    position: relative;
+    padding: 0 0 80px 0;
+    /* Removing top padding since logos has bottom padding */
+    z-index: 1;
+}
+
+.shop-cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #f0f1ec;
+    /* Matches footer */
+    z-index: -1;
+}
+
+.wishlist-share a:hover {
+    background: #5a8e48;
+    color: #fff;
+}
+
+/* Responsive */
+/* Responsive */
+@media (max-width: 576px) {
+    .wl-hero {
+        padding: 100px 0 80px 0;
+    }
+
+    .wl-hero .page-title {
+        font-size: 42px;
+    }
+}
+
+/* ============================================== */
+/* CTA BANNER SECTION                             */
+/* ============================================== */
+
+.cta-banner {
+    background-image: linear-gradient(rgba(58, 107, 53, 0.85), rgba(58, 107, 53, 0.85)), url('https://images.unsplash.com/photo-1592982537447-6f2c6a0c5c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.cta-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-icon-wrap {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.cta-text {
+    color: #fff;
+}
+
+.cta-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.cta-subtitle i {
+    color: var(--color-yellow);
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 30px;
+    }
+
+    .cta-left {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.history-image-slider {
+    padding: 80px 0;
+    background-color: #f0f1ec; /* Matches footer background */
+}
+
+.img-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.img-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    /* Left to right animation */
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.img-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% { transform: translateX(calc(-50% - 15px)); }
+    100% { transform: translateX(0); }
+}
+
+.slide-img {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+    transform: scale(1.1);
+}

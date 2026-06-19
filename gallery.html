@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gallery - Stackly Professional Organic Agriculture">
+    <title>Gallery - Stackly</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner -->
+    <section class="gallery-hero wl-hero">
+        <img src="images/leaf-shape.png" alt="" class="hero-leaves leaf-left">
+        <img src="images/leaf-shape.png" alt="" class="hero-leaves leaf-right">
+        <div class="container text-center">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span><i class="fa-solid fa-angles-right"></i></span> Our Gallery
+            </div>
+            <h1>Our Gallery</h1>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="masonry-gallery">
+                <div class="masonry-item">
+                    <img src="images/Chloe.webp" alt="Green Tractor">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/farmer-2.png" alt="Farmer with basket">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/farming&garden.jpg" alt="People in field">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/gallery-hero.jpg" alt="Harvester">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/garden.jpg" alt="Farmer">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/hero-bg-1.jpg" alt="Cow">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/hero-bg-2.jpg" alt="Tractor">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/hero-float-2.png" alt="Wheat">
+                </div>
+                <div class="masonry-item">
+                    <img src="images/image2.webp" alt="Green Tractor 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner Section -->
+    <div class="promo-wrapper">
+        <div class="promo-banner">
+            <div class="promo-banner-left">
+                <div class="promo-icon-badge">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <div class="promo-content">
+                    <div class="promo-subtitle">
+                        <i class="fa-solid fa-leaf"></i> Get Start Now
+                    </div>
+                    <h2 class="promo-title">Don't Miss Out &ndash;<br>Enjoy Up to 50% Off!</h2>
+                </div>
+            </div>
+            <div class="promo-banner-right">
+                <a href="contact.html" class="promo-btn">Contact Today <i class="fa-solid fa-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="history-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="full-image">
+    </div>
+
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Lightbox Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("image-modal");
+            var modalImg = document.getElementById("full-image");
+            var closeBtn = document.getElementsByClassName("close-modal")[0];
+
+            // Get all gallery images
+            var galleryItems = document.querySelectorAll(".masonry-item img");
+
+            galleryItems.forEach(function(img) {
+                img.addEventListener("click", function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                });
+            });
+
+            // Close modal when clicking the X
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Close modal when clicking outside the image
+            modal.onclick = function(e) {
+                if (e.target !== modalImg) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

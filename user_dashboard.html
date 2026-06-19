@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - User Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css?v=4">
+    <style>
+        /* Page Sections */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px; }
+        .stat-card { background: #fff; border-radius: 12px; padding: 22px 25px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-left: 4px solid #5B8C51; }
+        .stat-card.yellow { border-left-color: #F1C40F; }
+        .stat-card.red { border-left-color: #ff4d4f; }
+        .stat-card.blue { border-left-color: #1890ff; }
+        .stat-card .stat-label { font-size: 12px; text-transform: uppercase; font-weight: 700; color: #888; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .stat-card .stat-value { font-size: 32px; font-weight: 800; color: #112B1B; font-family: 'Outfit', sans-serif; }
+        .stat-card .stat-sub { font-size: 13px; color: #aaa; margin-top: 4px; }
+
+        /* Page Title */
+        .page-title { margin-bottom: 25px; }
+        .page-title h2 { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: #112B1B; margin: 0 0 4px; }
+        .page-title p { color: #888; font-size: 14px; margin: 0; }
+
+        /* Table */
+        .data-table-wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); overflow: hidden; }
+        .data-table-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 25px; border-bottom: 1px solid #f0f0f0; }
+        .data-table-header h3 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 16px; color: #112B1B; }
+        .btn-add { background: #112B1B; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 7px; transition: background 0.2s; }
+        .btn-add:hover { background: #5B8C51; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 12px 20px; text-align: left; font-size: 12px; text-transform: uppercase; color: #888; font-weight: 700; letter-spacing: 0.5px; }
+        td { padding: 14px 20px; border-bottom: 1px solid #f5f5f5; font-size: 14px; color: #444; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #fafff8; }
+
+        /* Badge */
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .badge-green { background: #e6f7ee; color: #5B8C51; }
+        .badge-yellow { background: #fffbe6; color: #d48806; }
+        .badge-red { background: #fff1f0; color: #ff4d4f; }
+        .badge-blue { background: #e6f4ff; color: #1890ff; }
+
+        /* Profile Form */
+        .form-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); padding: 30px; margin-bottom: 25px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 13px; font-weight: 600; color: #555; }
+        .form-group input, .form-group select, .form-group textarea { padding: 10px 14px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; }
+        .form-group input:focus, .form-group select:focus { border-color: #5B8C51; }
+        .btn-save { background: #5B8C51; color: #fff; border: none; padding: 11px 25px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+        .btn-save:hover { background: #112B1B; }
+
+        /* Wishlist grid */
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .product-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); overflow: hidden; }
+        .product-img { height: 140px; background: linear-gradient(135deg, #e6f7ee, #f0fff4); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+        .product-info { padding: 16px; }
+        .product-name { font-weight: 700; font-size: 15px; color: #112B1B; margin-bottom: 6px; }
+        .product-price { color: #5B8C51; font-weight: 800; font-size: 16px; }
+        .product-actions { display: flex; gap: 8px; margin-top: 12px; }
+        .btn-cart { background: #5B8C51; color: #fff; border: none; padding: 8px 14px; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; flex: 1; }
+        .btn-remove { background: #fff1f0; color: #ff4d4f; border: 1px solid #ffccc7; padding: 8px 14px; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo-text">
+                    <i class="fa-solid fa-leaf" style="color: #F1C40F;"></i> STACKLY
+                </a>
+                <button class="mobile-toggle" id="mobileToggleBtn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-label">Main Menu</li>
+                <li><a href="#" class="nav-link active" data-page="dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-page="profile"><i class="fa-solid fa-id-badge"></i> My Profile</a></li>
+                <li><a href="#" class="nav-link" data-page="orders"><i class="fa-solid fa-box-open"></i> My Orders</a></li>
+                <li><a href="#" class="nav-link" data-page="wishlist"><i class="fa-solid fa-heart"></i> Wishlist</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <!-- empty -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left" style="display: flex; align-items: baseline; gap: 15px;">
+                    <span style="color: #666; font-size: 15px;">Welcome, <span id="header-welcome-name" style="color: #112B1B; font-weight: 700;">User</span></span>
+                </div>
+                <div class="topbar-right">
+                    <div class="user-profile">
+                        <div class="user-info" style="text-align: right;">
+                            <span class="user-role" id="display-role">User</span>
+                            <span class="user-email" id="display-email">user@example.com</span>
+                        </div>
+                        <div class="user-avatar" style="background-color: #F1C40F; color: #112B1B;">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                    <a href="#" id="logoutBtn" class="btn-logout-top">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                    </a>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="dashboard-content">
+
+                <!-- ======================== DASHBOARD PAGE ======================== -->
+                <div id="page-dashboard" class="page-section active">
+                    <div class="page-title">
+                        <h2>My Dashboard</h2>
+                        <p>Here's a summary of your farm account activity.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Orders</div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-sub">All time</div>
+                        </div>
+                        <div class="stat-card yellow">
+                            <div class="stat-label">Pending Orders</div>
+                            <div class="stat-value">2</div>
+                            <div class="stat-sub">In progress</div>
+                        </div>
+                        <div class="stat-card red">
+                            <div class="stat-label">Wishlist Items</div>
+                            <div class="stat-value">5</div>
+                            <div class="stat-sub">Saved products</div>
+                        </div>
+                        <div class="stat-card blue">
+                            <div class="stat-label">Total Spent</div>
+                            <div class="stat-value">₹4.2K</div>
+                            <div class="stat-sub">This year</div>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header"><h3>Recent Orders</h3></div>
+                        <table>
+                            <thead><tr><th>Order ID</th><th>Product</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td>#ORD-2041</td><td>Organic Compost 10kg</td><td>₹350</td><td>18 Jun 2025</td><td><span class="badge badge-yellow">Pending</span></td></tr>
+                                <tr><td>#ORD-2039</td><td>Neem Oil 5L</td><td>₹599</td><td>16 Jun 2025</td><td><span class="badge badge-blue">Shipped</span></td></tr>
+                                <tr><td>#ORD-2030</td><td>Vermicompost 5kg</td><td>₹280</td><td>10 Jun 2025</td><td><span class="badge badge-green">Delivered</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== PROFILE PAGE ======================== -->
+                <div id="page-profile" class="page-section">
+                    <div class="page-title">
+                        <h2>My Profile</h2>
+                        <p>View and update your personal information.</p>
+                    </div>
+                    <div class="form-card">
+                        <div style="display:flex; align-items:center; gap:20px; margin-bottom:30px; padding-bottom:25px; border-bottom:1px solid #f0f0f0;">
+                            <div style="width:80px; height:80px; border-radius:50%; background:#F1C40F; color:#112B1B; display:flex; align-items:center; justify-content:center; font-size:32px;">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:20px; font-weight:800; color:#112B1B; font-family:'Outfit',sans-serif;" id="profile-display-name">User Name</div>
+                                <div style="color:#888; font-size:14px;" id="profile-display-email">user@example.com</div>
+                                <span class="badge badge-green" style="margin-top:6px;">Active Member</span>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" id="profile-firstname" placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Enter last name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="profile-email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" placeholder="Your city">
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" placeholder="Your state">
+                            </div>
+                        </div>
+                        <button class="btn-save" onclick="window.location.href='404.html'">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- ======================== ORDERS PAGE ======================== -->
+                <div id="page-orders" class="page-section">
+                    <div class="page-title">
+                        <h2>My Orders</h2>
+                        <p>Track your order history and invoices.</p>
+                    </div>
+                    <div class="data-table-wrap">
+                        <div class="data-table-header"><h3>Order History</h3></div>
+                        <table>
+                            <thead><tr><th>Order ID</th><th>Product</th><th>Qty</th><th>Amount</th><th>Date</th><th>Status</th><th>Invoice</th></tr></thead>
+                            <tbody>
+                                <tr><td>#ORD-2041</td><td>Organic Compost 10kg</td><td>1</td><td>₹350</td><td>18 Jun 2025</td><td><span class="badge badge-yellow">Pending</span></td><td><button class="btn-add" style="background:#f0f0f0; color:#333; font-size:12px; padding:6px 12px;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i></button></td></tr>
+                                <tr><td>#ORD-2039</td><td>Neem Oil 5L</td><td>2</td><td>₹1,198</td><td>16 Jun 2025</td><td><span class="badge badge-blue">Shipped</span></td><td><button class="btn-add" style="background:#f0f0f0; color:#333; font-size:12px; padding:6px 12px;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i></button></td></tr>
+                                <tr><td>#ORD-2030</td><td>Vermicompost 5kg</td><td>1</td><td>₹280</td><td>10 Jun 2025</td><td><span class="badge badge-green">Delivered</span></td><td><button class="btn-add" style="background:#f0f0f0; color:#333; font-size:12px; padding:6px 12px;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i></button></td></tr>
+                                <tr><td>#ORD-2018</td><td>Bio Fertilizer Pack</td><td>3</td><td>₹1,425</td><td>01 Jun 2025</td><td><span class="badge badge-green">Delivered</span></td><td><button class="btn-add" style="background:#f0f0f0; color:#333; font-size:12px; padding:6px 12px;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ======================== WISHLIST PAGE ======================== -->
+                <div id="page-wishlist" class="page-section">
+                    <div class="page-title">
+                        <h2>My Wishlist</h2>
+                        <p>Your saved products for later purchase.</p>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-img">🌿</div>
+                            <div class="product-info">
+                                <div class="product-name">Organic Compost 10kg</div>
+                                <div class="product-price">₹350</div>
+                                <div class="product-actions">
+                                    <button class="btn-cart" onclick="window.location.href='404.html'"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                                    <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">🧴</div>
+                            <div class="product-info">
+                                <div class="product-name">Neem Oil 5L</div>
+                                <div class="product-price">₹599</div>
+                                <div class="product-actions">
+                                    <button class="btn-cart" onclick="window.location.href='404.html'"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                                    <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">🌱</div>
+                            <div class="product-info">
+                                <div class="product-name">Bio Fertilizer Pack</div>
+                                <div class="product-price">₹475</div>
+                                <div class="product-actions">
+                                    <button class="btn-cart" onclick="window.location.href='404.html'"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                                    <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">💧</div>
+                            <div class="product-info">
+                                <div class="product-name">Drip Irrigation Kit</div>
+                                <div class="product-price">₹2,200</div>
+                                <div class="product-actions">
+                                    <button class="btn-cart" onclick="window.location.href='404.html'"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                                    <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-img">🪱</div>
+                            <div class="product-info">
+                                <div class="product-name">Vermicompost 5kg</div>
+                                <div class="product-price">₹280</div>
+                                <div class="product-actions">
+                                    <button class="btn-cart" onclick="window.location.href='404.html'"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                                    <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /dashboard-content -->
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleEl = document.getElementById('display-role');
+            const emailEl = document.getElementById('display-email');
+            const headerWelcomeEl = document.getElementById('header-welcome-name');
+
+            const savedRole  = localStorage.getItem('auth_role');
+            const savedEmail = localStorage.getItem('auth_email');
+            const savedName  = localStorage.getItem('auth_first_name');
+
+            if (savedRole && savedEmail) {
+                roleEl.innerText  = savedRole;
+                emailEl.innerText = savedEmail;
+
+                const displayName = savedName
+                    ? savedName
+                    : savedRole.charAt(0).toUpperCase() + savedRole.slice(1);
+                headerWelcomeEl.innerText = displayName;
+
+                // Fill profile page fields
+                const pName = document.getElementById('profile-display-name');
+                const pEmail = document.getElementById('profile-display-email');
+                const pFirstName = document.getElementById('profile-firstname');
+                const pEmailInput = document.getElementById('profile-email');
+                if (pName) pName.innerText = displayName;
+                if (pEmail) pEmail.innerText = savedEmail;
+                if (pFirstName && savedName) pFirstName.value = savedName;
+                if (pEmailInput) pEmailInput.value = savedEmail;
+            }
+
+            // ── Logout ──
+            document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('auth_role');
+                localStorage.removeItem('auth_email');
+                localStorage.removeItem('auth_first_name');
+                window.location.href = 'index.html';
+            });
+
+            // ── SPA Navigation ──
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages    = document.querySelectorAll('.page-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetPage = link.getAttribute('data-page');
+
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    pages.forEach(p => p.classList.remove('active'));
+                    const target = document.getElementById('page-' + targetPage);
+                    if (target) target.classList.add('active');
+
+                    // Close mobile sidebar if open
+                    const sidebarMenu = document.querySelector('.sidebar-menu');
+                    if (window.innerWidth <= 768 && sidebarMenu) {
+                        sidebarMenu.classList.remove('show');
+                    }
+                });
+            });
+
+            // ── Mobile Sidebar Toggle ──
+            const mobileToggleBtn = document.getElementById('mobileToggleBtn');
+            const sidebarMenu = document.querySelector('.sidebar-menu');
+            if (mobileToggleBtn && sidebarMenu) {
+                mobileToggleBtn.addEventListener('click', () => {
+                    sidebarMenu.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coming Soon - Stackly Professional Organic Agriculture">
+    <title>Coming Soon - Stackly</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/coming_soon.css">
+</head>
+
+<body>
+    <div class="coming-soon-wrapper">
+        <div class="container text-center">
+
+            <!-- Logo -->
+            <a href="index.html" class="cs-logo">
+                <!-- <img src="images/logo.png" alt="Stackly Logo"> -->
+                <h1>STACKLY</h1>
+            </a>
+
+            <!-- Heading -->
+            <p class="cs-subtitle">OUR WEBSITE IS UNDER CONSTRUCTION</p>
+            <h1 class="cs-title">COMING SOON!</h1>
+
+            <!-- Countdown Timer -->
+            <div class="cs-countdown">
+                <div class="cs-time-circle">
+                    <span class="cs-number" id="days">000</span>
+                    <span class="cs-label">DAYS</span>
+                </div>
+                <div class="cs-colon">:</div>
+                <div class="cs-time-circle">
+                    <span class="cs-number" id="hours">00</span>
+                    <span class="cs-label">HOURS</span>
+                </div>
+                <div class="cs-colon">:</div>
+                <div class="cs-time-circle">
+                    <span class="cs-number" id="minutes">00</span>
+                    <span class="cs-label">MINUTES</span>
+                </div>
+                <div class="cs-colon">:</div>
+                <div class="cs-time-circle">
+                    <span class="cs-number" id="seconds">00</span>
+                    <span class="cs-label">SECONDS</span>
+                </div>
+            </div>
+
+            <!-- Email Subscription -->
+            <form class="cs-subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                <input type="email" placeholder="Enter email" required>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+
+            <!-- Social Links -->
+            <div class="cs-socials">
+                <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="404.html" class="social-icon">
+                    <img src="images/icons8-twitter-100.png" alt="Twitter">
+                </a>
+                <a href="404.html"><i class="fa-solid fa-basketball"></i></a>
+                <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <!-- Back to Home -->
+            <a href="index.html" class="cs-home-btn">Go To Homepage <i class="fa-solid fa-arrow-up-right"></i></a>
+
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer Logic
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 1, 2030 00:00:00").getTime();
+
+        var countdownFunction = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

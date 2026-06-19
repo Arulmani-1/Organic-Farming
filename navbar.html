@@ -1,0 +1,232 @@
+<!-- Include styles for standalone preview -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Redirect to home page if opened directly -->
+<script>
+    if (window.location.pathname.endsWith('navbar.html')) {
+        window.location.href = 'index.html';
+    }
+</script>
+
+<header class="header" id="header">
+    <div class="header-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M50 0C22.4 0 0 22.4 0 50C0 77.6 22.4 100 50 100C77.6 100 100 77.6 100 50C100 22.4 77.6 0 50 0ZM50 90C27.9 90 10 72.1 10 50C10 27.9 27.9 10 50 10C72.1 10 90 27.9 90 50C90 72.1 72.1 90 50 90Z"
+                    fill="#F1C40F" />
+                <path d="M75 25C60 20 40 25 25 40C10 55 10 75 10 75C10 75 30 75 45 60C60 45 80 30 75 25Z"
+                    fill="#2E8B57" />
+                <path d="M25 40C35 45 45 55 50 65C50 65 40 60 25 40Z" fill="#F1C40F" />
+            </svg>
+            <span>STACKLY</span>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="index.html" class="nav-link" data-page="index">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-page="pages">Pages <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Team <i class="fa-solid fa-chevron-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="our_team.html">Our Team</a></li>
+                                <li><a href="team_detail.html">Team Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="testimonial.html">Testimonial</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="404.html">404 Page</a></li>
+                        <li><a href="coming_soon.html">Coming Soon</a></li>
+                        <li><a href="landing.html">Landing Page</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-page="services">Services <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="our_services.html">Our Services</a></li>
+                        <li><a href="service_details.html">Service Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-page="projects">Projects <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="our_projects.html">Our Projects</a></li>
+                        <li><a href="project_details.html">Project Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-page="news">News <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                            <a href="news.html">Blog Grid <i class="fa-solid fa-chevron-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="3_columns.html">3 Columns</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="2_columns.html">2 Columns <i class="fa-solid fa-chevron-right"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="2_columns.html">Without Sidebar</a></li>
+                                        <li><a href="left_sidebar.html">Left Sidebar</a></li>
+                                        <li><a href="right_sidebar.html">Right Sidebar</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="blog_standard.html">Blog Standard <i class="fa-solid fa-chevron-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog_standard.html">Without Sidebar</a></li>
+                                <li><a href="blog_standard_left.html">Left Sidebar</a></li>
+                                <li><a href="blog_standard_right.html">Right Sidebar</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="blog_details.html">Blog Details <i class="fa-solid fa-chevron-right"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog_details.html">Without Sidebar</a></li>
+                                <li><a href="blog_details_left.html">Left Sidebar</a></li>
+                                <li><a href="blog_details_right.html">Right Sidebar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-page="shop">Shop <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="our_products.html">Our Products</a></li>
+                        <li><a href="single_product.html">Single Product</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="my_account.html">My Account</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Header Right Actions -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search anything...">
+                <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <a href="login.html" class="nav-link" style="margin-right: 20px; font-weight: 700; color: var(--color-secondary);">
+                <i class="fa-regular fa-user" style="font-size: 16px; margin-right: 5px;"></i> Login
+            </a>
+
+            <a href="contact.html" class="btn btn-primary btn-header">Let's Talk <i class="fa-solid fa-arrow-up-right-dots"
+                    style="transform: rotate(45deg); display: inline-block; font-size: 0.9em; margin-left: 4px;"></i></a>
+
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="document.getElementById('offcanvas-sidebar').classList.add('active'); document.getElementById('offcanvas-overlay').classList.add('active');">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Offcanvas Sidebar -->
+
+
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas-sidebar" id="offcanvas-sidebar">
+
+    <button class="offcanvas-close" id="offcanvas-close" onclick="document.getElementById('offcanvas-sidebar').classList.remove('active'); document.getElementById('offcanvas-overlay').classList.remove('active');">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="offcanvas-body">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                <path
+                    d="M50 0C22.4 0 0 22.4 0 50C0 77.6 22.4 100 50 100C77.6 100 100 77.6 100 50C100 22.4 77.6 0 50 0ZM50 90C27.9 90 10 72.1 10 50C10 27.9 27.9 10 50 10C72.1 10 90 27.9 90 50C90 72.1 72.1 90 50 90Z"
+                    fill="#F1C40F" />
+                <path d="M75 25C60 20 40 25 25 40C10 55 10 75 10 75C10 75 30 75 45 60C60 45 80 30 75 25Z"
+                    fill="#2E8B57" />
+                <path d="M25 40C35 45 45 55 50 65C50 65 40 60 25 40Z" fill="#F1C40F" />
+            </svg>
+
+            <span>STACKLY</span>
+        </a>
+
+        <p class="offcanvas-text">
+            Lorem ipsum dolor sit amet, porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+        </p>
+
+        <!-- Contact -->
+        <div class="offcanvas-contact">
+            <h4>Contact Us</h4>
+
+            <ul class="offcanvas-info">
+
+                <li>
+                    <div class="icon-circle">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span>Email us:</span>
+                        <strong>stackly@gmail.com</strong>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span>Location:</span>
+                        <strong>San Francisco 88/90 NY</strong>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+
+                    <div class="info-content">
+                        <span>Phone:</span>
+                        <strong>(704) 555-0127</strong>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <hr>
+
+        <!-- Social -->
+        <div class="offcanvas-socials">
+            <h4>Socials:</h4>
+
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#">𝕏</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-solid fa-globe"></i></a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Overlay -->
+<div class="offcanvas-overlay" id="offcanvas-overlay" onclick="document.getElementById('offcanvas-sidebar').classList.remove('active'); this.classList.remove('active');"></div>

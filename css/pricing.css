@@ -1,0 +1,370 @@
+/* ============================================== */
+/* PRICING HERO BANNER                            */
+/* ============================================== */
+
+.pricing-hero {
+    background-image: linear-gradient(rgba(35, 60, 25, 0.7), rgba(35, 60, 25, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 160px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.leaf-left {
+    bottom: -50px;
+    left: 5%;
+    transform: rotate(30deg);
+}
+
+.leaf-right {
+    bottom: -30px;
+    right: 5%;
+    transform: rotate(-45deg);
+}
+
+.pricing-hero .breadcrumb {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pricing-hero .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.pricing-hero .breadcrumb a:hover {
+    color: var(--color-yellow);
+}
+
+.pricing-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 70px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* ============================================== */
+/* PRICING CARDS SECTION                          */
+/* ============================================== */
+
+.pricing-section {
+    background-color: #fcfdfb;
+    padding: 100px 0;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pricing-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px 35px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: #5a8e48;
+}
+
+.pricing-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.pricing-icon {
+    font-size: 32px;
+    color: #5a8e48;
+}
+
+.pricing-title {
+    font-size: 22px;
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    margin: 0;
+    font-weight: 600;
+}
+
+.pricing-price {
+    margin-bottom: 20px;
+}
+
+.price-amount {
+    font-size: 46px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #5a8e48;
+}
+
+.price-period {
+    font-size: 14px;
+    color: #777;
+    font-family: var(--font-body);
+}
+
+.pricing-desc {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.pricing-divider {
+    border-top: 1px dashed #ddd;
+    margin-bottom: 25px;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+}
+
+.pricing-features li {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pricing-features li i {
+    color: #5a8e48;
+    font-size: 13px;
+}
+
+.btn-pricing {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pricing-card .btn-pricing {
+    border: 1px solid #5a8e48;
+    color: #5a8e48;
+    background-color: transparent;
+}
+
+.pricing-card:hover .btn-pricing,
+.pricing-card .btn-pricing:hover {
+    background-color: #5a8e48;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================== */
+/* PROMO BANNER SECTION                           */
+/* ============================================== */
+
+.promo-wrapper {
+    /* Gradient to make banner overlap the white pricing section and the footer section */
+    background: linear-gradient(to bottom, #fcfdfb 50%, #f5f6f2 50%);
+    padding: 0 15px;
+    margin-bottom: 0;
+}
+
+.promo-banner {
+    /* Using a subtle green overlay with an agriculture image */
+    background-image: linear-gradient(rgba(70, 110, 50, 0.8), rgba(70, 110, 50, 0.8)), url('https://images.unsplash.com/photo-1592982537447-6f296d092285?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 50px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.promo-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.promo-icon-badge {
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Simulate a scalloped border effect using dashed border and padding-box */
+    border: 8px dashed rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+    box-shadow: 0 0 0 8px #fff inset; /* pushes dashed border out slightly */
+}
+
+.promo-icon-badge i {
+    font-size: 32px;
+    color: #5a8e48;
+}
+
+.promo-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-subtitle {
+    font-size: 15px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.promo-subtitle i {
+    color: var(--color-yellow, #F1C40F);
+}
+
+.promo-title {
+    font-size: 40px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.promo-btn {
+    background-color: var(--color-yellow, #F1C40F);
+    color: var(--color-secondary, #233c19);
+    padding: 18px 35px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.promo-btn:hover {
+    background-color: #fff;
+    color: var(--color-secondary);
+}
+
+@media (max-width: 992px) {
+    .promo-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 30px;
+    }
+    
+    .promo-banner-left {
+        flex-direction: column;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.history-image-slider {
+    padding: 80px 0;
+    background-color: #f5f6f2;
+}
+
+.img-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.img-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.img-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% { transform: translateX(calc(-50% - 15px)); }
+    100% { transform: translateX(0); }
+}
+
+.slide-img {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+    transform: scale(1.1);
+}

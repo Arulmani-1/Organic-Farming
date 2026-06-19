@@ -1,0 +1,341 @@
+/* ============================================== */
+/* OUR TEAM HERO BANNER                           */
+/* ============================================== */
+
+.team-hero {
+    /* Using a dark green overlay + organic farm image */
+    background-image: linear-gradient(rgba(35, 60, 25, 0.7), rgba(35, 60, 25, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 160px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.leaf-img {
+    position: absolute;
+    width: 250px;
+    opacity: 0.2;
+    filter: invert(1); /* makes the black icon white */
+}
+
+.leaf-left {
+    bottom: -50px;
+    left: 5%;
+    transform: rotate(30deg);
+}
+
+.leaf-right {
+    bottom: -30px;
+    right: 5%;
+    transform: rotate(-45deg);
+}
+
+.team-hero .breadcrumb {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.team-hero .breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-hero .breadcrumb a:hover {
+    color: var(--color-yellow);
+}
+
+.team-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 70px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+/* ============================================== */
+/* TEAM GRID SECTION                              */
+/* ============================================== */
+
+.team-grid-section {
+    padding: 100px 0;
+    background: #fff;
+    margin-bottom: 100px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.team-card {
+    background: transparent;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+.tc-img-wrap {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    border-radius: 20px;
+}
+
+.tc-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: filter 0.4s ease;
+}
+
+.team-card:hover .tc-img-wrap img {
+    filter: brightness(1.05);
+}
+
+.tc-share-btn {
+    position: absolute;
+    bottom: -25px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 1px dashed var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.tc-share-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+    border-style: solid;
+}
+
+.tc-content {
+    padding: 35px 10px 10px 10px;
+}
+
+.tc-role {
+    font-size: 14px;
+    color: #777;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.tc-name {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--color-secondary);
+    margin: 0;
+    font-weight: 800;
+}
+
+/* ============================================== */
+/* PAGINATION                                     */
+/* ============================================== */
+
+.team-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 60px;
+}
+
+.page-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    transition: all 0.3s ease;
+}
+
+.page-link.active {
+    background-color: var(--color-secondary);
+    color: #fff;
+    border-color: var(--color-secondary);
+}
+
+.page-link:hover:not(.active) {
+    background-color: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+}
+
+.page-link.next i {
+    font-size: 20px;
+}
+
+/* ============================================== */
+/* CTA BANNER SECTION                             */
+/* ============================================== */
+
+.team-cta-section {
+    position: relative;
+    padding: 80px 0;
+    margin-top: 50px;
+    z-index: 1;
+}
+
+.team-cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #f0f1ec; /* Light greenish-grey from your theme */
+    z-index: -1;
+}
+
+.cta-banner {
+    background-image: linear-gradient(rgba(58, 107, 53, 0.85), rgba(58, 107, 53, 0.85)), url('https://images.unsplash.com/photo-1592982537447-6f2c6a0c5c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.cta-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-icon-wrap {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.cta-text {
+    color: #fff;
+}
+
+.cta-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.cta-subtitle i {
+    color: var(--color-yellow);
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 30px;
+    }
+
+    .cta-left {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================== */
+/* IMAGE SLIDER MARQUEE (LEFT TO RIGHT)           */
+/* ============================================== */
+
+.team-image-slider {
+    padding: 80px 0;
+    background-color: #f0f1ec; /* Matches footer background */
+}
+
+.slider-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.image-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 30px;
+    /* Left to right animation */
+    animation: imageScrollRight 25s linear infinite;
+}
+
+.image-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes imageScrollRight {
+    0% { transform: translateX(calc(-50% - 15px)); }
+    100% { transform: translateX(0); }
+}
+
+.slide-image {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.slide-image:hover img {
+    transform: scale(1.1);
+}

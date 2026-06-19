@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Stackly</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+    <!-- Dynamic Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner Section -->
+    <section class="page-hero-banner checkout-hero wl-hero">
+        <div class="container text-center">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fa-solid fa-angles-right"></i> <span>Checkout</span>
+            </div>
+            <h1 class="page-title">Checkout</h1>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+
+            <!-- Coupon Section -->
+            <div class="checkout-coupon-notice">
+                <i class="fa-regular fa-window-maximize"></i> Have a coupon? <a href="#" id="show-coupon-form">Click
+                    here to enter your code</a>
+            </div>
+            <div class="checkout-coupon-form" id="checkout-coupon-form">
+                <input type="text" placeholder="Coupon code">
+                <button class="btn btn-green">APPLY COUPON</button>
+            </div>
+
+            <div class="checkout-grid">
+
+                <!-- Billing Details -->
+                <div class="checkout-billing">
+                    <h3 class="checkout-title">Billing details</h3>
+                    <form class="checkout-form">
+                        <div class="form-row">
+                            <input type="text" placeholder="First Name *" required>
+                            <input type="text" placeholder="Last Name *" required>
+                        </div>
+                        <input type="text" placeholder="Company name (optional)">
+                        <input type="text" placeholder="House number and street name *" required>
+                        <select required id="country-select">
+                            <option value="" disabled selected>Select Country...</option>
+                        </select>
+                        <input type="text" placeholder="Apartment, suite, unit, etc. (optional)">
+                        <input type="text" placeholder="Town / City *" required>
+                        <select required id="state-select">
+                            <option value="" disabled selected>Select State...</option>
+                        </select>
+                        <input type="text" placeholder="Postcode *" required>
+                        <div class="form-row">
+                            <input type="tel" placeholder="Phone number *" required>
+                            <input type="email" placeholder="Your email *" required>
+                        </div>
+
+                        <div class="mt-40">
+                            <h3 class="checkout-title">Additional information</h3>
+                            <textarea rows="4"
+                                placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="checkout-order">
+                    <h3 class="checkout-title">Your order</h3>
+
+                    <div class="order-table-wrap">
+                        <table class="order-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkout-items-container">
+                                <!-- Dynamic checkout items -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="order-total">
+                                    <td>Total</td>
+                                    <td id="checkout-total-val">$0.00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <input type="radio" name="payment" id="pay-transfer" checked>
+                            <label for="pay-transfer">Direct bank transfer</label>
+                            <div class="payment-desc">Make your payment directly into our bank account. Please use your
+                                Order ID as the payment reference. Your order will not be shipped until the funds have
+                                cleared in our account.</div>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" name="payment" id="pay-check">
+                            <label for="pay-check">Check payments</label>
+                            <div class="payment-desc">Please send a check to Store Name, Store Street, Store Town, Store
+                                State / County, Store Postcode.</div>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" name="payment" id="pay-cash">
+                            <label for="pay-cash">Cash on delivery</label>
+                            <div class="payment-desc">Pay with cash upon delivery.</div>
+                        </div>
+
+                        <p class="privacy-text">Your personal data will be used to process your order, support your
+                            experience throughout this website, and for other purposes described in our privacy policy.
+                        </p>
+
+                        <button class="btn btn-green">Place Your Order <i class="fa-solid fa-arrow-right"
+                                style="transform: rotate(-45deg);"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="shop-cta-section">
+        <div class="container">
+            <div class="cta-banner">
+                <div class="cta-left">
+                    <div class="cta-icon-wrap">
+                        <span class="fa-stack fa-2x" style="font-size: 45px;">
+                            <i class="fa-solid fa-certificate fa-stack-2x" style="color: #fff;"></i>
+                            <i class="fa-solid fa-envelope-open-text fa-stack-1x"
+                                style="color: var(--color-primary); font-size: 35px;"></i>
+                        </span>
+                    </div>
+                    <div class="cta-text">
+                        <span class="cta-subtitle"><i class="fa-solid fa-leaf"></i> Get Start Now</span>
+                        <h2 class="cta-title">Don't Miss Out –<br>Enjoy Up to 50% Off!</h2>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="contact.html" class="btn btn-yellow"
+                        style="padding: 18px 40px; border-radius: 40px; font-weight: 700; color: #111;">
+                        Contact Today <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Slider Section (Left to Right Marquee) -->
+    <section class="history-image-slider">
+        <div class="img-marquee-wrapper">
+            <div class="img-track">
+                <!-- Original Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+
+                <!-- Duplicated Set -->
+                <div class="slide-img"><img src="images/machine.webp" alt="Harvester"></div>
+                <div class="slide-img"><img src="images/farmer-overlap.jpg" alt="Farmer"></div>
+                <div class="slide-img"><img src="images/cow.webp" alt="Cow"></div>
+                <div class="slide-img"><img src="images/track.webp" alt="Tractor"></div>
+                <div class="slide-img"><img src="images/image2.webp" alt="Wheat"></div>
+                <div class="slide-img"><img src="images/machine1.webp" alt="Green Tractor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/loading.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

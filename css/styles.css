@@ -3906,6 +3906,11 @@ ul {
         font-size: 38px;
     }
 
+    /* Hide floating award box on smaller screens */
+    .floating-award-box {
+        display: none !important;
+    }
+
     /* Header & Navbar */
     .nav {
         display: none;

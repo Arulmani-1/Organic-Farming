@@ -1113,7 +1113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="wl-page-price">${item.priceHTML || '$0.00'}</div>
                     </div>
                     <div class="wl-page-action">
-                        <button class="btn-green wl-add-cart-page-btn" data-index="${idx}">Add to cart <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:12px; margin-left:5px;"></i></button>
+                        <a href="404.html" class="btn-green" style="display:inline-block; text-decoration:none;">Add to cart <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:12px; margin-left:5px;"></i></a>
                     </div>
                 `;
                 wlPageContainer.appendChild(div);

@@ -4096,6 +4096,12 @@ ul {
 /* --- MOBILE LANDSCAPE & LARGE PHONES (max-width: 768px) --- */
 @media (max-width: 768px) {
 
+    /* Features Grid & Products Grid (Single column on mobile) */
+    .features-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
     /* Global Padding */
     section {
         padding: 60px 0;
@@ -4216,7 +4222,10 @@ ul {
     }
 
     .newsletter-form {
+        display: flex;
         flex-direction: column;
+        gap: 15px;
+        width: 100%;
         border-radius: 10px;
         padding-right: 0;
     }
@@ -4224,9 +4233,14 @@ ul {
     .newsletter-form input {
         border-radius: 10px;
         text-align: center;
+        width: 100%;
     }
 
     .newsletter-form button {
+        position: relative;
+        transform: none;
+        top: auto;
+        right: auto;
         width: 100%;
         border-radius: 10px;
     }

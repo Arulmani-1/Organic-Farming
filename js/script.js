@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actionBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             if (btn.innerText.includes('Products')) {
-                e.preventDefault();
+                // e.preventDefault(); // Removed so the 404.html link can work
                 cartCount++;
                 cartCountEl.innerText = cartCount;
                 cartIcon.style.transform = 'scale(1.2)';

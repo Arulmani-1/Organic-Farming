@@ -4102,6 +4102,33 @@ ul {
         grid-template-columns: 1fr;
     }
 
+    /* Product Banner Mobile Layout Adjustment */
+    .product-banner {
+        height: auto;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .product-banner .pb-discount {
+        order: 1;
+    }
+    .product-banner .pb-title {
+        order: 2;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .product-banner img {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        order: 3;
+        margin-bottom: 20px;
+    }
+    .product-banner .btn-shop {
+        order: 4;
+    }
+
     /* Promo Hero Stats on Mobile */
     .promo-hero-stats {
         grid-template-columns: 1fr;
